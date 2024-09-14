@@ -8,7 +8,7 @@ export const Navbar = () => {
 				<Link
 					href="/"
 					className="flex-1 p-1 ">
-					<Logo className=" w-32 h-12 md:w-56 " />
+					<Logo className=" w-48 h-12 md:w-64 " />
 				</Link>
 				<div className="uppercase hover:*:underline  *:mx-2 text-lg font-bold  ">
 					<Link href="#">progetti</Link>

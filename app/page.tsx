@@ -1,3 +1,10 @@
+import { Hero } from "./(home)/_components/hero";
+
 export default function Home() {
-	return <h1>hello word</h1>;
+	return (
+		<>
+			<Hero />
+			<main className="w-full min-h-screen"></main>
+		</>
+	);
 }
