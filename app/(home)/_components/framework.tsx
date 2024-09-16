@@ -48,12 +48,12 @@ export const Framework = () => {
 		},
 	];
 	return (
-		<section className=" ps-5 my-4">
+		<section className=" my-4 ">
 			<h2 className="uppercase font-bold text-2xl mb-5">
 				FrameWork e linguaggi
 			</h2>
-			<div className="container flex uppercase font-semibold ">
-				<div className="w-1/2">
+			<div className=" flex justify-around uppercase font-semibold w-full  ">
+				<div className="w-1/3 ">
 					<h3 className="mb-4 text-xl">linguaggi</h3>
 					<div className="grid grid-cols-2">
 						{arrLing.map((el) => {
@@ -70,7 +70,7 @@ export const Framework = () => {
 						})}
 					</div>
 				</div>
-				<div className="w-1/2">
+				<div className="w-1/3 ">
 					<h3 className="mb-4 text-xl">Framework</h3>
 					<div className="grid grid-cols-3">
 						{arrFrame.map((el) => {

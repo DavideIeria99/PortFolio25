@@ -1,5 +1,6 @@
 import { Framework } from "./(home)/_components/framework";
 import { Hero } from "./(home)/_components/hero";
+import { Project } from "./(home)/_components/project";
 import { Story } from "./(home)/_components/story";
 import { WhoIam } from "./(home)/_components/who-i-am";
 
@@ -11,6 +12,7 @@ export default function Home() {
 				<WhoIam />
 				<Story />
 				<Framework />
+				<Project />
 			</main>
 		</>
 	);
