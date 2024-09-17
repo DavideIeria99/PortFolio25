@@ -9,8 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+
+        body: "#ffc183",
+        bodyLight: "#FFE5CA",
       },
     },
   },

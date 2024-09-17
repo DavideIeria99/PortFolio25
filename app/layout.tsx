@@ -15,7 +15,7 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const classBody = " bg-[#ffc183]";
+	const classBody = " bg-body";
 	return (
 		<html lang="en">
 			<body className={inter.className + classBody}>
