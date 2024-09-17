@@ -14,7 +14,7 @@ export const Project = () => {
                 <Card />
                 <Card />
             </div>
-            <Link href={"#"} className="py-4">
+            <Link href={"/progetti"} className="py-4">
                 <button className="rounded bg-[#FFE5CA] p-2 hover:bg-slate-200">
                     alti progetti
                 </button>
