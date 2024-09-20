@@ -40,3 +40,8 @@ next-env.d.ts
 *.md
 !README.md
 .prettierrc
+
+# Supabase
+.branches
+.temp
+.env
