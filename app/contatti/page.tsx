@@ -1,9 +1,9 @@
 export default function page() {
     return (
         <div className="min-h-screen">
-            <div className="mx-auto w-1/2 rounded border-4 border-white bg-bodyLight py-10 shadow-md shadow-yellow-300">
+            <div className="mx-auto w-1/2 rounded border-4 border-white bg-orange-300 py-10 shadow-md shadow-orange-200 *:text-white">
                 <div className=" flex w-full flex-col text-center">
-                    <h1 className="title-font mb-4 text-2xl font-medium text-gray-900 sm:text-3xl">
+                    <h1 className="title-font mb-4 text-2xl font-medium sm:text-3xl">
                         contatti
                     </h1>
                 </div>
