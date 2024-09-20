@@ -1,6 +1,6 @@
 export const WhoIam = () => {
     return (
-        <section className=" my-4 ps-5">
+        <section className=" my-4 ">
             <h2 className="mb-5 text-2xl font-bold uppercase">Chi sono</h2>
             <div className="flex  justify-evenly gap-3 text-center uppercase  ">
                 <div className="w-auto rounded border-b-4 border-black">

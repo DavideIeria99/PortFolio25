@@ -6,8 +6,8 @@ import { nameMode } from "@/utils";
 export interface sectionProps {
     Sect: Database["public"]["Tables"]["describe"]["Row"];
 }
-const supabase = createClient();
 export async function fechSupabase(name: string) {
+    const supabase = createClient();
 
     const { data: template } = await supabase
         .from("templates")
@@ -30,6 +30,8 @@ export async function fechSupabase(name: string) {
 
 
 export function GetImage(image: string) {
+    const supabase = createClient();
+
     const { data: img } = supabase.storage.from("template").getPublicUrl(image);
 
     return nameMode(img.publicUrl);
