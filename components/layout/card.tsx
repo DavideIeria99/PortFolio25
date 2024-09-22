@@ -1,4 +1,4 @@
-import { createClient } from "@/supabase/utils/server";
+import { createClient } from "@/supabase/database/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

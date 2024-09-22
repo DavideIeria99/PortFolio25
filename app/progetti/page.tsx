@@ -1,5 +1,5 @@
 import Card from "@/components/layout/card";
-import { createClient } from "@/supabase/utils/server";
+import { createClient } from "@/supabase/database/server";
 import { redirect } from "next/navigation";
 
 export default async function page() {

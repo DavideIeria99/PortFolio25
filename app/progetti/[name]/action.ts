@@ -1,6 +1,7 @@
 import { Database } from "@/database.types";
-import { createClient } from "@/supabase/utils/server";
-import { nameMode } from "@/utils";
+import { createClient } from "@/supabase/database/server";
+import NameMode from "@/utils/namemode";
+
 
 
 export interface sectionProps {
@@ -34,5 +35,5 @@ export function GetImage(image: string) {
 
     const { data: img } = supabase.storage.from("template").getPublicUrl(image);
 
-    return nameMode(img.publicUrl);
+    return NameMode(img.publicUrl);
 }

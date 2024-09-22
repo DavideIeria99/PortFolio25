@@ -1,4 +1,4 @@
-export function nameMode(text: string) {
+export default function NameMode(text: string) {
     const testName = text.split("");
 
     for (let i = 0; i < testName.length; i++) {

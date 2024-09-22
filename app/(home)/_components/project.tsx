@@ -1,5 +1,6 @@
 import Card from "@/components/layout/card";
-import { createClient } from "@/supabase/utils/server";
+import NextIntersectionObserver from "@/components/NextIntersectionObserver";
+import { createClient } from "@/supabase/database/server";
 import Link from "next/link";
 
 export const Project = async () => {
@@ -16,7 +17,18 @@ export const Project = async () => {
                 {data &&
                     data.map((el) => {
                         return (
-                            <Card key={el.id} name={el.name} image={el.img} />
+                            <NextIntersectionObserver
+                                key={el.id}
+                                rootmargin={"1px"}
+                                thresholdValue={0}
+                                classes={`transition-all   `}
+                                topIn={`animate-fadeInBottom`}
+                                topOut="opacity-0"
+                                bottomIn={`animate-fadeInBottom`}
+                                bottomOut="opacity-0"
+                            >
+                                <Card name={el.name} image={el.img} />
+                            </NextIntersectionObserver>
                         );
                     })}
             </div>

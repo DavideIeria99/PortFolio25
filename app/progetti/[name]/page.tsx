@@ -1,7 +1,7 @@
-import { nameMode } from "@/utils";
-import { fechSupabase } from "./action";
 import { SectionRight } from "./_components/sectionRight";
 import { SectionLeft } from "./_components/sectionLeft";
+import NameMode from "@/utils/namemode";
+import { fechSupabase } from "./action";
 
 interface paramsProps {
     params: {
@@ -10,7 +10,7 @@ interface paramsProps {
 }
 
 export default async function page({ params }: paramsProps) {
-    const stringName = nameMode(params.name);
+    const stringName = NameMode(params.name);
     const descrizione = await fechSupabase(stringName);
 
     return (
