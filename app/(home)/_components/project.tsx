@@ -21,7 +21,7 @@ export const Project = async () => {
                                 key={el.id}
                                 rootmargin={"1px"}
                                 thresholdValue={0}
-                                classes={`transition-all   `}
+                                classes={`transition-all`}
                                 topIn={`animate-fadeInBottom`}
                                 topOut="opacity-0"
                                 bottomIn={`animate-fadeInBottom`}
@@ -32,7 +32,7 @@ export const Project = async () => {
                         );
                     })}
             </div>
-            <Link href={"/progetti"} prefetch={false} className="py-4">
+            <Link href={"/progetti"} prefetch className="py-4">
                 <button className="rounded bg-[#FFE5CA] p-2 hover:bg-slate-200">
                     alti progetti
                 </button>

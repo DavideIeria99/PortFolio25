@@ -18,6 +18,7 @@ export default function Card(card: cardProps) {
     return (
         <Link
             href={`progetti/${card.name}` ?? "/"}
+            prefetch
             className="relative h-auto w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500"
         >
             <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:bg-body/50 hover:opacity-100">
