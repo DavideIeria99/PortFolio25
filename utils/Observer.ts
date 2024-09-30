@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 export default function UseElementBoundaryObserver(rootmargin: string, thresholdValue: number) {
     const ref = useRef(null); // We initialize a useRef to track our element.
     const [boundary, setBoundary] = useState(''); // The boundary state will indicate whether the element is at the top or bottom of the viewport.
-    console.log(ref);
+
 
     useEffect(() => {
         const currentRef = ref.current;

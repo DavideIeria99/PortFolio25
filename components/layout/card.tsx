@@ -17,7 +17,7 @@ export default function Card(card: cardProps) {
 
     return (
         <Link
-            href={`progetti/${card.name}` ?? "/"}
+            href={`progetti/${card.name}`}
             prefetch
             className="relative h-auto w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500"
         >
