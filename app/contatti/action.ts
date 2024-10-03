@@ -1,7 +1,10 @@
 "use server";
 
+
 import { MailerClient } from "@/utils/nodeMail";
 import EmailCustom from "./_components/email-custom";
+
+
 
 export type FormState = {
     message: string,
@@ -14,11 +17,10 @@ export const EmailAbout = async (prevState: FormState, formData: FormData) => {
 
     try {
 
-        await MailerClient.sendMail({
+        MailerClient.sendMail({
             from: email,
-            to: "davideieria99@gmail.com",
+            to: "davideieria1099@gmail.com",
             subject: `about ${name}`,
-            text: `about ${name}`,
             html: EmailCustom(message),
         });
         return { message: "", error: "" }

@@ -47,18 +47,21 @@ export type Database = {
           id: number
           img: string
           name: string
+          video: string | null
         }
         Insert: {
           description: string
           id?: number
           img: string
           name: string
+          video?: string | null
         }
         Update: {
           description?: string
           id?: number
           img?: string
           name?: string
+          video?: string | null
         }
         Relationships: []
       }

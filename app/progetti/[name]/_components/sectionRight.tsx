@@ -6,8 +6,8 @@ export const SectionRight = async ({ Sect }: sectionProps) => {
     return (
         <section className="my-10 flex flex-col-reverse  md:flex-row md:justify-center">
             <Image
-                src={img ?? "/media/prova.png"}
-                alt={"progetto"}
+                src={img}
+                alt={Sect.title}
                 width={500}
                 height={500}
                 className=" w-full object-contain md:w-1/2 md:object-cover "

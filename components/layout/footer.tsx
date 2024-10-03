@@ -1,12 +1,14 @@
+import SimpleContact from "@/app/contatti/_components/simple-contact";
 import React from "react";
 
 export default function Footer() {
     return (
-        <footer className="mt-10 h-20 bg-gradient-to-t from-slate-200 text-center text-black ">
+        <footer className="mt-10 flex h-auto justify-around bg-gradient-to-t from-slate-200 text-black ">
             {/* <!--Copyright section--> */}
-            <h5 className=" text-center text-neutral-700  ">
+            <span className=" mb-4 mt-auto items-center text-center   text-slate-700  ">
                 © 2024 Copyright:Davide Ieria
-            </h5>
+            </span>
+            <SimpleContact />
         </footer>
     );
 }

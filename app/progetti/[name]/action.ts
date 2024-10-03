@@ -7,6 +7,8 @@ import NameMode from "@/utils/namemode";
 export interface sectionProps {
     Sect: Database["public"]["Tables"]["describe"]["Row"];
 }
+
+
 export async function fechSupabase(name: string) {
     const supabase = createClient();
 
@@ -22,9 +24,13 @@ export async function fechSupabase(name: string) {
     const { data: describe } = await supabase
         .from("describe")
         .select("*")
-        .eq("template_id", template.id);
+        .eq("template_id", template.id)
+        .order("id");
 
-    return describe;
+    const result = { describe, template }
+
+    return result
+
 }
 
 

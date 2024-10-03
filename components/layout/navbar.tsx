@@ -11,7 +11,7 @@ export const Navbar = () => {
                 <div className=" text-lg  font-bold uppercase *:mx-2 hover:*:underline  ">
                     <Link href="/progetti">progetti</Link>
                     <Link href="/contatti" prefetch>
-                        contatti
+                        contattami
                     </Link>
                 </div>
             </div>
