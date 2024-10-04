@@ -10,9 +10,9 @@ export const Navbar = () => {
                 </Link>
                 <div className=" text-lg  font-bold uppercase *:mx-2 hover:*:underline  ">
                     <Link href="/progetti">progetti</Link>
-                    <Link href="/contatti" prefetch>
+                    {/* <Link href="/contatti" prefetch>
                         contattami
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </nav>
