@@ -1,14 +1,19 @@
 import Card from "@/components/layout/card";
 import NextIntersectionObserver from "@/components/NextIntersectionObserver";
 import { createClient } from "@/supabase/database/server";
-import { redirect } from "next/navigation";
 
 export default async function page() {
     const supabase = createClient();
     const { data: template } = await supabase.from("templates").select("*");
 
     if (!template) {
-        return redirect("/progetti");
+        return (
+            <main className="min-h-screen">
+                <h1 className="text-2xl font-bold text-white">
+                    Errore ricaricare la pagina
+                </h1>
+            </main>
+        );
     }
     return (
         <main className="px-10">
