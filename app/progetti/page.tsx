@@ -1,5 +1,5 @@
 import Card from "@/components/layout/card";
-import NextIntersectionObserver from "@/components/NextIntersectionObserver";
+
 import { createClient } from "@/supabase/database/server";
 
 export default async function page() {
@@ -22,18 +22,7 @@ export default async function page() {
                 {template &&
                     template.map((el) => {
                         return (
-                            <NextIntersectionObserver
-                                key={el.id}
-                                rootmargin={"2px"}
-                                thresholdValue={0}
-                                classes={`duration-300 transition-all delay-[${el.id * 1000}ms]`}
-                                topIn={`animate-fadeInBottom`}
-                                topOut="opacity-0"
-                                bottomIn={`animate-fadeInBottom   delay-[${el.id * 1000}ms] `}
-                                bottomOut="opacity-0"
-                            >
-                                <Card name={el.name} image={el.img} />
-                            </NextIntersectionObserver>
+                            <Card key={el.id} name={el.name} image={el.img} />
                         );
                     })}
             </section>
