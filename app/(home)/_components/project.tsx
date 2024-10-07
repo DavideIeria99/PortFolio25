@@ -1,12 +1,15 @@
 import Card from "@/components/layout/card";
-import NextIntersectionObserver from "@/components/NextIntersectionObserver";
+import * as motion from "framer-motion/client";
 import { createClient } from "@/supabase/database/server";
 import Link from "next/link";
 
 export const Project = async () => {
     const supabase = createClient();
-
-    const { data } = await supabase.from("templates").select("*").limit(3);
+    const { data } = await supabase
+        .from("templates")
+        .select("*")
+        .limit(3)
+        .order("id");
 
     return (
         <section className="justify my-4 flex flex-col items-center ">
@@ -17,25 +20,32 @@ export const Project = async () => {
                 {data &&
                     data.map((el) => {
                         return (
-                            <NextIntersectionObserver
+                            <motion.div
                                 key={el.id}
-                                rootmargin={"1px"}
-                                thresholdValue={0}
-                                classes={`transition-all`}
-                                topIn={`animate-fadeInBottom`}
-                                topOut="opacity-0"
-                                bottomIn={`animate-fadeInBottom`}
-                                bottomOut="opacity-0"
+                                initial={{ opacity: 0, y: 100 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{
+                                    duration: 2,
+                                    delay: parseFloat(`.${el.id}`),
+                                }}
                             >
                                 <Card name={el.name} image={el.img} />
-                            </NextIntersectionObserver>
+                            </motion.div>
                         );
                     })}
             </div>
-            <Link href={"/progetti"} prefetch className="py-4">
-                <button className="rounded bg-[#FFE5CA] p-2 hover:bg-slate-200">
+            <Link href={"/progetti"} className="py-4">
+                <motion.button
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{
+                        duration: 2,
+                        delay: 0.5,
+                    }}
+                    className="rounded bg-[#FFE5CA] p-2 hover:bg-slate-200"
+                >
                     alti progetti
-                </button>
+                </motion.button>
             </Link>
         </section>
     );

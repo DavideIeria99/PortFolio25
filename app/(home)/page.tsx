@@ -1,4 +1,3 @@
-import NextIntersectionObserver from "@/components/NextIntersectionObserver";
 import { Framework } from "./_components/framework";
 import { Hero } from "./_components/hero";
 import { Project } from "./_components/project";
@@ -12,19 +11,7 @@ export default function Home() {
             <main className="min-h-screen w-full px-5  ">
                 <WhoIam />
                 <Story />
-
-                <NextIntersectionObserver
-                    rootmargin="1px"
-                    thresholdValue={0}
-                    classes="transition-opacity duration-200 "
-                    topIn=" animate-fadeInLeft"
-                    topOut="opacity-0"
-                    bottomIn="animate-fadeInLeft"
-                    bottomOut="opacity-0"
-                >
-                    <Framework />
-                </NextIntersectionObserver>
-
+                <Framework />
                 <Project />
             </main>
         </>
