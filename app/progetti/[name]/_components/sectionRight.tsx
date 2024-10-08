@@ -13,10 +13,10 @@ export const SectionRight = async ({ Sect }: sectionProps) => {
                 className=" w-full object-contain md:w-1/2 md:object-cover "
             />
             <div className="mb-3 w-full px-10  md:mb-0 md:w-1/2 ">
-                <h3 className="text-2xl font-semibold uppercase">
+                <h3 className="text-xl font-semibold uppercase md:text-2xl">
                     {Sect.title}
                 </h3>
-                <p className="mt-20 text-justify">{Sect.text}</p>
+                <p className="mt-2 text-justify md:mt-20">{Sect.text}</p>
             </div>
         </section>
     );

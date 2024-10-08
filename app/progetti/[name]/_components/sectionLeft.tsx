@@ -5,12 +5,12 @@ export const SectionLeft = ({ Sect }: sectionProps) => {
     const img = GetImage(Sect.image);
 
     return (
-        <section className="my-10 flex flex-col md:flex-row md:justify-between ">
+        <section className="my-10 flex flex-col  md:flex-row md:justify-between ">
             <div className=" mb-3 w-full px-10 md:mt-0 md:w-1/2 ">
-                <h3 className="text-2xl font-semibold uppercase">
+                <h3 className="text-xl font-semibold uppercase md:text-2xl">
                     {Sect.title}
                 </h3>
-                <p className="mt-20 text-justify">{Sect.text}</p>
+                <p className="mt-2 text-justify md:mt-20">{Sect.text}</p>
             </div>
             <Image
                 src={img ?? "/media/prova.png"}

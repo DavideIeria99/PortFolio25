@@ -26,9 +26,9 @@ const WhoStory: cardStoryProps[] = [
 
 export const WhoIam = () => {
     return (
-        <section className=" my-4 ">
+        <section className=" my-8 ">
             <h2 className="mb-5 text-2xl font-bold uppercase">Chi sono</h2>
-            <div className="flex  justify-evenly gap-3 text-center uppercase  ">
+            <div className="gap grid w-full  grid-cols-2 gap-x-3 gap-y-6 text-center  uppercase md:grid-cols-4 md:gap-4  ">
                 {WhoStory &&
                     WhoStory.map((el, _) => (
                         <motion.div
@@ -39,10 +39,10 @@ export const WhoIam = () => {
                                 delay: parseFloat(`.${_}`),
                             }}
                             key={_}
-                            className="w-auto rounded border-b-4 border-black "
+                            className="flex w-full flex-col justify-center rounded border-b-4 border-black "
                         >
                             {el.Children}
-                            <p className="text-lg">{el.text}</p>
+                            <p className=" text-lg ">{el.text}</p>
                         </motion.div>
                     ))}
             </div>

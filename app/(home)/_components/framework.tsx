@@ -70,7 +70,7 @@ export const Framework = () => {
                                     height={500}
                                     src={el.img}
                                     alt={el.name}
-                                    className="size-24"
+                                    className="size-12 md:size-24"
                                 />
                             );
                         })}
@@ -85,7 +85,7 @@ export const Framework = () => {
                     className="w-1/3 "
                 >
                     <h3 className="mb-4 text-xl">Framework</h3>
-                    <div className="grid grid-cols-3">
+                    <div className="grid grid-cols-3 gap-2">
                         {arrFrame.map((el) => {
                             return (
                                 <Image
@@ -94,7 +94,7 @@ export const Framework = () => {
                                     height={500}
                                     src={el.img}
                                     alt={el.name}
-                                    className="size-24"
+                                    className="size-12 md:size-24"
                                 />
                             );
                         })}

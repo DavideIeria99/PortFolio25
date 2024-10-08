@@ -16,7 +16,9 @@ export default async function page({ params }: paramsProps) {
     if (!result) {
         return (
             <main className="min-h-screen px-10">
-                <h1 className="text-4xl font-bold uppercase">{stringName}</h1>
+                <h1 className="text-2xl font-bold uppercase md:text-4xl">
+                    {stringName}
+                </h1>
                 <p>non funziona</p>
             </main>
         );
@@ -24,13 +26,17 @@ export default async function page({ params }: paramsProps) {
     return (
         <main className="min-h-screen px-10">
             <section className="flex gap-3">
-                <h1 className="text-4xl font-bold uppercase">{stringName}</h1>
+                <h1 className="text-2xl font-bold uppercase md:text-4xl">
+                    {stringName}
+                </h1>
                 {result.template.video && (
                     <a
-                        className="rounded bg-orange-500 px-3 py-1 transition duration-200 hover:bg-orange-200  "
+                        className=" rounded bg-orange-500 p-4  transition duration-200 hover:bg-orange-200 md:px-3 md:py-1  "
                         href="#video"
                     >
-                        <button>video disponibile</button>
+                        <button className="w-full text-center font-semibold uppercase">
+                            video
+                        </button>
                     </a>
                 )}
             </section>
@@ -45,11 +51,14 @@ export default async function page({ params }: paramsProps) {
                 })}
             {result.template.video && (
                 <section>
-                    <h2 className="text-2xl font-bold uppercase" id="video">
+                    <h2
+                        className="text-xl font-bold uppercase md:text-2xl"
+                        id="video"
+                    >
                         presentazione
                     </h2>
                     <iframe
-                        className="mx-auto rounded"
+                        className="mx-auto w-full rounded"
                         allowFullScreen
                         src={`${result.template.video}`}
                         height="399"
