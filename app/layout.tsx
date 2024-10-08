@@ -13,7 +13,7 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const classBody = " bg-body ";
+    const classBody = " bg-body w-screen md:w-full ";
     return (
         <html lang="en">
             <body className={classBody}>
