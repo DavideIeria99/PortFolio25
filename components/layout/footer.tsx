@@ -1,4 +1,4 @@
-import SimpleContact from "@/app/contatti/_components/simple-contact";
+import SimpleContact from "@/app/(public)/contatti/_components/simple-contact";
 import React from "react";
 
 export default function Footer() {
