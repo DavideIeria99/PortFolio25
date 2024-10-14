@@ -14,7 +14,7 @@ export default function SimpleContact() {
                     alt={"Linkedin"}
                     width={50}
                     height={50}
-                    className="mx-auto"
+                    className="mx-auto h-auto w-auto"
                 />
             </Link>
             <span className="my-auto  font-bold text-slate-600">
