@@ -1,13 +1,43 @@
+import Card from "@/components/layout/card";
 import { createClient } from "@/supabase/database/server";
 
 export default async function Admin() {
     const supabase = createClient();
-    const { data } = await supabase.auth.getUser();
-    console.log(data);
+    const { data: project } = await supabase
+        .from("templates")
+        .select("*")
+        .order("id");
 
     return (
-        <main className="min-h-screen px-2">
-            <h1>Benvenuto {data.user?.email} </h1>
+        <main className="min-h-screen w-full px-2">
+            <h1 className="text-2xl font-black uppercase">Benvenuto Admin</h1>
+            <section className="flex h-screen w-full">
+                {/*@todo pulsanti */}
+                <div className="flex w-1/3 flex-col items-center justify-center gap-y-4 bg-red-500 *:w-1/3 *:rounded *:p-1 *:text-center *:font-bold *:uppercase *:text-white ">
+                    <button className="bg-blue-500 hover:bg-blue-400 ">
+                        crea
+                    </button>
+                    <button className="bg-yellow-600 hover:bg-yellow-500">
+                        modifica
+                    </button>
+                    <button className="bg-red-900 hover:bg-red-800">
+                        elimina
+                    </button>
+                </div>
+                {/*@todo progetti */}
+                <section className="w-2/3 overflow-auto bg-blue-500 px-2 py-4">
+                    <div className=" grid w-full grid-cols-3 gap-2 ">
+                        {project &&
+                            project.map((el) => (
+                                <Card
+                                    key={el.id}
+                                    name={el.name}
+                                    image={el.img}
+                                />
+                            ))}
+                    </div>
+                </section>
+            </section>
         </main>
     );
 }

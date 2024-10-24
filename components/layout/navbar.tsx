@@ -29,9 +29,8 @@ export const Navbar = ({ user }: NavbarProps) => {
 
                     {user ? (
                         <>
-                            <Link href="/contatti" prefetch>
-                                contattami
-                            </Link>
+                            <Link href="/admin">admin</Link>
+                            <Link href="/contatti">contattami</Link>
                             <button
                                 className="rounded bg-red-500 p-2 text-white"
                                 onClick={logout}
