@@ -8,7 +8,7 @@ export default async function page() {
 
     if (!template) {
         return (
-            <main className="min-h-screen">
+            <main>
                 <h1 className="text-2xl font-bold text-white">
                     Errore ricaricare la pagina
                 </h1>

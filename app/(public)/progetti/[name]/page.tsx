@@ -15,7 +15,7 @@ export default async function page({ params }: paramsProps) {
 
     if (!result) {
         return (
-            <main className="min-h-screen px-10">
+            <main className="px-10">
                 <h1 className="text-2xl font-bold uppercase md:text-4xl">
                     {stringName}
                 </h1>
@@ -24,7 +24,7 @@ export default async function page({ params }: paramsProps) {
         );
     }
     return (
-        <main className="min-h-screen px-10">
+        <main className="px-10">
             <section className="flex gap-3">
                 <h1 className="text-2xl font-bold uppercase md:text-4xl">
                     {stringName}

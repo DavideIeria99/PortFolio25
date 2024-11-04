@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <Hero />
-            <main className="min-h-screen w-full px-5 ">
+            <main className=" px-5 ">
                 <WhoIam />
                 <Story />
                 <Framework />

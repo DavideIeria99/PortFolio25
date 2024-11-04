@@ -1,18 +1,31 @@
-import { createClient } from "@/supabase/database/server";
+"use client";
+import { createClient } from "@/supabase/database/client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface cardProps {
-    name?: string;
-    image: string;
+    name?: string | null;
+    image?: string | null;
+    prewiew?: boolean;
 }
 
-export default async function Card(card: cardProps) {
-    const supabase = createClient();
-    const { data: image } = supabase.storage
-        .from("template")
-        .getPublicUrl(card.image);
+export default function Card(card: cardProps) {
+    const [image, setImage] = useState("/media/prova.png");
+    useEffect(() => {
+        if (card.image && card.prewiew) {
+            setImage(card.image);
+        }
+
+        if (card.image && !card.prewiew) {
+            const supabase = createClient();
+            const { data: image } = supabase.storage
+                .from("template")
+                .getPublicUrl(card.image);
+            setImage(image.publicUrl);
+        }
+    }, [card.image, card.prewiew]);
+
     return (
         <Link
             href={`progetti/${card.name}`}
@@ -24,8 +37,24 @@ export default async function Card(card: cardProps) {
                     {card.name ?? "progetto"}
                 </span>
             </div>
+            {/* {card.prewiew ? (
+                <img
+                    src={image}
+                    width={500}
+                    height={500}
+                    className="relative z-0 mx-auto size-full object-contain"
+                />
+            ) : (
+                <Image
+                    src={image}
+                    alt={card.name ?? "progetto"}
+                    width={500}
+                    height={500}
+                    className="relative z-0 mx-auto size-full object-contain  "
+                />
+            )} */}
             <Image
-                src={image.publicUrl ?? "/media/prova.png"}
+                src={image}
                 alt={card.name ?? "progetto"}
                 width={500}
                 height={500}

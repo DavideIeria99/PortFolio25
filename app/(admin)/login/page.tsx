@@ -11,7 +11,7 @@ export default function Login() {
     const [state, formAction] = useFormState(loginAction, initialState);
 
     return (
-        <main className="min-h-screen w-full">
+        <main>
             <section className="mx-auto w-full rounded border-4 bg-slate-200 bg-opacity-50 p-3 md:w-1/2 md:border-orange-400 md:p-0">
                 <div className="p-8 text-center sm:px-12 lg:px-16 lg:py-12 ">
                     <Logo className="mx-auto block h-12 w-full" />
