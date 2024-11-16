@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Logo from "../icons/logo";
 import { User } from "@supabase/supabase-js";
-import { createClient } from "@/supabase/database/client";
+import { createClient } from "@/utils/supabase/database/client";
 import { useRouter } from "next/navigation";
 
 interface NavbarProps {

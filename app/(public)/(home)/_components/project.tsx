@@ -1,6 +1,6 @@
 import Card from "@/components/layout/card";
 import * as motion from "framer-motion/client";
-import { createClient } from "@/supabase/database/server";
+import { createClient } from "@/utils/supabase/database/server";
 import Link from "next/link";
 
 export const Project = async () => {

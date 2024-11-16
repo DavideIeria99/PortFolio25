@@ -1,14 +1,16 @@
+import { formCreate } from "@/app/(admin)/action";
 import { FormButton } from "@/components/ui/form-button";
 
 interface FormCreateProps {
     setName: React.Dispatch<React.SetStateAction<string | null>>;
     setImage: React.Dispatch<React.ChangeEvent<HTMLInputElement>>;
 }
+
 export default function FormCreate({ ...props }: FormCreateProps) {
     return (
         <form
             className="grid w-full grid-cols-1 gap-3  md:grid-cols-2 "
-            action=""
+            action={formCreate}
         >
             {/* nome */}
             <div className="w-full p-2">

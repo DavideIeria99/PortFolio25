@@ -16,10 +16,7 @@ export default async function page({ params }: paramsProps) {
     if (!result) {
         return (
             <main className="px-10">
-                <h1 className="text-2xl font-bold uppercase md:text-4xl">
-                    {stringName}
-                </h1>
-                <p>non funziona</p>
+                <p>errore di caricamento</p>
             </main>
         );
     }
@@ -66,6 +63,11 @@ export default async function page({ params }: paramsProps) {
                         title={result.template.name}
                     ></iframe>
                 </section>
+            )}
+            {result.describe && result.describe.length == 0 && (
+                <h2 className="mt-10 font-semibold text-white">
+                    non sono presenti dati
+                </h2>
             )}
         </main>
     );

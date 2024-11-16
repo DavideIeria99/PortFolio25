@@ -1,6 +1,6 @@
 import Card from "@/components/layout/card";
 
-import { createClient } from "@/supabase/database/server";
+import { createClient } from "@/utils/supabase/database/server";
 
 export default async function page() {
     const supabase = createClient();

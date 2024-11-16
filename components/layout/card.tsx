@@ -1,5 +1,5 @@
 "use client";
-import { createClient } from "@/supabase/database/client";
+import { createClient } from "@/utils/supabase/database/client";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";

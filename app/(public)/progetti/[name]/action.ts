@@ -1,5 +1,5 @@
 import { Database } from "@/database.types";
-import { createClient } from "@/supabase/database/server";
+import { createClient } from "@/utils/supabase/database/server";
 import NameMode from "@/utils/namemode";
 
 
