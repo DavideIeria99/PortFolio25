@@ -3,7 +3,7 @@ import { FormButton } from "@/components/ui/form-button";
 
 interface FormCreateProps {
     setName: React.Dispatch<React.SetStateAction<string | null>>;
-    setImage: React.Dispatch<React.ChangeEvent<HTMLInputElement>>;
+    setPrewiew: React.Dispatch<React.ChangeEvent<HTMLInputElement>>;
 }
 
 export default function FormCreate({ ...props }: FormCreateProps) {
@@ -37,7 +37,7 @@ export default function FormCreate({ ...props }: FormCreateProps) {
                     image
                 </label>
                 <input
-                    onChange={(e) => props.setImage(e)}
+                    onChange={(e) => props.setPrewiew(e)}
                     type="file"
                     id="image"
                     name="image"

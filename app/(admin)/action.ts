@@ -58,3 +58,13 @@ export const formCreate = async (formData: FormData) => {
     }
 
 };
+
+export const fecthData = async () => {
+    const supabase = createClient();
+    const { data: project } = await supabase
+        .from("templates")
+        .select("*")
+        .order("id");
+
+    return project
+}

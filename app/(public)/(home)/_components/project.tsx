@@ -1,4 +1,4 @@
-import Card from "@/components/layout/card";
+import Card from "@/components/ui/card";
 import * as motion from "framer-motion/client";
 import { createClient } from "@/utils/supabase/database/server";
 import Link from "next/link";

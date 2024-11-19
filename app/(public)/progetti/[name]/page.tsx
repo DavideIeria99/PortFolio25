@@ -37,6 +37,9 @@ export default async function page({ params }: paramsProps) {
                     </a>
                 )}
             </section>
+            <section>
+                <p>{result.template.description}</p>
+            </section>
 
             {result.describe &&
                 result.describe.map((el) => {
