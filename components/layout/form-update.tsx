@@ -1,17 +1,37 @@
-import { formCreateTemplate } from "@/app/(admin)/action";
-import { FormButton } from "@/components/ui/form-button";
+"use client";
+import { useState } from "react";
+import { FormButton } from "../ui/form-button";
 
-interface FormCreateProps {
-    setName: React.Dispatch<React.SetStateAction<string | null>>;
-    setPrewiew: React.Dispatch<React.ChangeEvent<HTMLInputElement>>;
+interface dataProps {
+    title: string | undefined;
+    id: number | undefined;
+    text: string | undefined;
+    urlImage: string | undefined;
+    template_id: number | undefined;
+    action: (formData: FormData) => Promise<void> | undefined;
 }
+export default function FormUpdate({ ...props }: dataProps) {
+    const [title, setTitle] = useState(props.title);
+    const [text, setText] = useState(props.text);
 
-export default function FormCreate({ ...props }: FormCreateProps) {
     return (
         <form
             className="grid w-full grid-cols-1 gap-3  md:grid-cols-2 "
-            action={formCreateTemplate}
+            action={props.action}
         >
+            <input type="text" hidden defaultValue={props.id} name="id" />
+            <input
+                type="text"
+                hidden
+                defaultValue={props.urlImage}
+                name="urlImage"
+            />
+            <input
+                type="text"
+                hidden
+                defaultValue={props.template_id}
+                name="template"
+            />
             {/* nome */}
             <div className="w-full p-2">
                 <label
@@ -25,7 +45,8 @@ export default function FormCreate({ ...props }: FormCreateProps) {
                     id="name"
                     name="name"
                     placeholder="Progetto"
-                    onChange={(e) => props.setName(e.target.value)}
+                    defaultValue={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     className="w-full rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
                 />
             </div>
@@ -37,7 +58,6 @@ export default function FormCreate({ ...props }: FormCreateProps) {
                     image
                 </label>
                 <input
-                    onChange={(e) => props.setPrewiew(e)}
                     type="file"
                     id="image"
                     name="image"
@@ -56,6 +76,8 @@ export default function FormCreate({ ...props }: FormCreateProps) {
                 </label>
                 <textarea
                     placeholder="text..."
+                    defaultValue={text}
+                    onChange={(e) => setText(e.target.value)}
                     id="message"
                     name="message"
                     className="h-24 w-full resize-none rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
@@ -64,7 +86,6 @@ export default function FormCreate({ ...props }: FormCreateProps) {
             {/* submit */}
             <div className=" w-full p-2 md:col-span-2 ">
                 <FormButton text={"invia"} />
-                {/* <div className="text-red-700">{state.error}</div> */}
             </div>
         </form>
     );

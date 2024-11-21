@@ -24,7 +24,7 @@ export const loginAction = async (prevState: FormState, formData: FormData) => {
     redirect("/admin")
 }
 
-export const formCreate = async (formData: FormData) => {
+export const formCreateTemplate = async (formData: FormData) => {
     const name = formData.get("name") as string;
     const image = formData.get("image") as File;
     const message = formData.get("message") as string;
@@ -49,9 +49,9 @@ export const formCreate = async (formData: FormData) => {
             //*creiamo il template
             const { error: dataError } = await supabaseClient.from("templates").insert({ name, description: message, img: `${name}/${imageName}` })
             if (!dataError) {
-                redirect(`/progetti`)
+                redirect(`/admin`)
             } else {
-                console.error(dataError);
+                console.error("descrizione: \n", dataError);
 
             }
         }
@@ -59,12 +59,41 @@ export const formCreate = async (formData: FormData) => {
 
 };
 
-export const fecthData = async () => {
-    const supabase = createClient();
-    const { data: project } = await supabase
-        .from("templates")
-        .select("*")
-        .order("id");
+export const formUpsertDescribe = async (formData: FormData) => {
+    const id = formData.get("id") as unknown as number;
+    const urlImage = formData.get("urlImage") as string;
+    const template = formData.get("template") as unknown as number;
+    const name = formData.get("name") as string;
+    const image = formData.get("image") as File;
+    const message = formData.get("message") as string;
 
-    return project
-}
+
+
+
+
+    //*richiamiamo supabase
+    const supabaseClient = createClient();
+    const auth = await supabaseClient.auth.getUser();
+
+
+    if (auth.data.user?.role) {
+        //*se è presente un immagine
+        if (image.size > 0) {
+            //*nome immagine
+            const { error: errorImage } = await supabaseAdmin.storage.from("template").update(urlImage, image);
+            if (errorImage) {
+                console.error("immagine:\n", errorImage);
+                // alert("problema con l'immagine");
+            }
+        }
+        //*creiamo il template
+        const { error: dataError } = await supabaseClient.from("describe").upsert({ id: id, title: name, text: message, image: urlImage, template_id: template }).select();
+
+        if (!dataError) {
+            redirect(`/admin`)
+        } else {
+            console.error(dataError);
+        }
+    }
+
+};
