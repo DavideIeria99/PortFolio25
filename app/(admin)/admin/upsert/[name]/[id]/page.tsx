@@ -4,6 +4,7 @@ import FormUpdate from "@/components/layout/form-update";
 import { fechImage } from "@/utils/fechtImage";
 import { createClient } from "@/utils/supabase/database/server";
 import Image from "next/image";
+import { Suspense } from "react";
 
 interface paramsProps {
     params: {
@@ -11,7 +12,7 @@ interface paramsProps {
         name: string;
     };
 }
-export default async function modifica({ params }: paramsProps) {
+export default async function modificaSingle({ params }: paramsProps) {
     const supabaseClient = createClient();
     const { data } = await supabaseClient
         .from("describe")
@@ -25,12 +26,14 @@ export default async function modifica({ params }: paramsProps) {
                 <h2>{data?.title}</h2>
                 <p>{data?.text}</p>
                 {data && (
-                    <Image
-                        src={fechImage(data.image)}
-                        width={500}
-                        height={500}
-                        alt={data?.title ?? "image"}
-                    />
+                    <Suspense fallback="caricamento..">
+                        <Image
+                            src={fechImage(data.image)}
+                            width={500}
+                            height={500}
+                            alt={data?.title ?? "image"}
+                        />
+                    </Suspense>
                 )}
             </section>
             <section className="bg-green-400">

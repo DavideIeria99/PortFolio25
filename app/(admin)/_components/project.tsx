@@ -13,7 +13,12 @@ export default async function Project() {
             <div className=" grid w-full grid-cols-3 gap-2 ">
                 {project &&
                     project.map((el) => (
-                        <Card key={el.id} name={el.name} image={el.img} />
+                        <Card
+                            key={el.id}
+                            name={el.name}
+                            image={el.img}
+                            id={el.id}
+                        />
                     ))}
             </div>
         </section>

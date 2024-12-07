@@ -64,7 +64,6 @@ export default function FormCreate({ ...props }: FormCreateProps) {
             {/* submit */}
             <div className=" w-full p-2 md:col-span-2 ">
                 <FormButton text={"invia"} />
-                {/* <div className="text-red-700">{state.error}</div> */}
             </div>
         </form>
     );

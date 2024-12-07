@@ -6,13 +6,16 @@ import React, { useEffect, useState } from "react";
 export default function ButtonAdmin() {
     const [question, setQuestion] = useState("benvenuto Admin");
     const upsert = useSearchParams().get("upsert");
+    const deleteTemplate = useSearchParams().get("delete");
     useEffect(() => {
         if (upsert) {
             setQuestion("cosa vuoi modificare?");
+        } else if (deleteTemplate) {
+            setQuestion("cosa vuoi cancellare?");
         } else {
             setQuestion("Benvenuto Admin");
         }
-    }, [upsert]);
+    }, [upsert, deleteTemplate]);
     return (
         <>
             {/*@todo pulsanti */}
@@ -31,9 +34,12 @@ export default function ButtonAdmin() {
                         href={"?upsert=true"}
                         className="bg-yellow-600 hover:bg-yellow-500"
                     >
-                        <button>modifica</button>
+                        modifica
                     </Link>
-                    <Link href={"#"} className="bg-red-900 hover:bg-red-800">
+                    <Link
+                        href={"?delete=true"}
+                        className="bg-red-900 hover:bg-red-800"
+                    >
                         elimina
                     </Link>
                 </section>
