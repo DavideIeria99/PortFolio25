@@ -20,7 +20,7 @@ export default function UpsertForm({ children, id }: UpsertProps) {
         if (children?.type == "p") {
             SetSubBottom(true);
         }
-    }, []);
+    }, [children?.type]);
 
     return (
         <>
@@ -29,7 +29,9 @@ export default function UpsertForm({ children, id }: UpsertProps) {
                     href="#insert"
                     className=" rounded bg-orange-700 p-2 text-white"
                 >
-                    inserisci un nuovo articolo
+                    {SubBottom
+                        ? "nascondi form"
+                        : "inserisci un nuovo articolo"}
                 </Link>
             </button>
             {children}

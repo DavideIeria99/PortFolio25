@@ -78,7 +78,7 @@ export const formCreateDescribe = async (formData: FormData) => {
     //*controlliamo se siamo auth
     const supabaseClient = createClient();
     const auth = await supabaseClient.auth.getUser();
-    const nameFile = await supabaseClient.from("templates").select("img").eq('id', template_id).single();
+    const nameFile = await supabaseClient.from("templates").select(`img,name`).eq('id', template_id).single();
     const field = nameFile.data?.img?.split('/')[0]
 
     console.log(`${field} / ${imageName}`);
@@ -96,7 +96,7 @@ export const formCreateDescribe = async (formData: FormData) => {
             //*creiamo il describe
             const { error: dataError } = await supabaseClient.from("describe").insert({ title: name, text: message, template_id: template_id, image: `${field}/${imageName}` });
             if (!dataError) {
-                redirect(`/admin`)
+                redirect(`/admin/upsert/${nameFile.data?.name}`)
             } else {
                 console.error("descrizione: \n", dataError);
 
@@ -175,8 +175,6 @@ export const deleteTemplate = async (id: number | null | undefined) => {
     //vediamo se ci sono describe e prendiamo i template 
     const { data: template, error: errorTemplate } = await supabaseClient.from("templates").select('img').eq('id', id).single();
     const { data: describe, error: errorDescribe } = await supabaseClient.from("describe").select('image').eq('template_id', id);
-
-    console.log(describe)
     if (errorDescribe) {
         console.log(errorDescribe);
         return
@@ -210,6 +208,43 @@ export const deleteTemplate = async (id: number | null | undefined) => {
         return console.log(error);
     }
     redirect("/admin");
+
+
+
+}
+//?cancellare describe
+export const deleteDescribe = async (id: number | null | undefined) => {
+    //se ce l'id
+    const supabaseClient = createClient();
+    if (!id) {
+        return
+    }
+    //vediamo se ci sono describe  
+    const { data: describe } = await supabaseClient.from("describe").select('image,template_id').eq('id', id).single();
+
+    if (!describe) {
+        console.log("non c'è describe");
+        return
+    }
+
+    const { data: template } = await supabaseClient.from("templates").select('name').eq('id', describe.template_id).single();
+
+
+    console.log("rimuoviamo l'immagini in describe: ")
+    try {
+        const { } = supabaseClient.storage.from("template").remove([describe.image]);
+    } catch (error) {
+        console.log(error);
+        return
+    }
+    console.log("rimuoviamo il describe: ")
+    const { error } = await supabaseClient.from("describe").delete().eq("id", id);
+    if (error) {
+        console.log(error);
+        return
+    }
+
+    redirect(`/admin/upsert/${template?.name}`);
 
 
 
