@@ -48,8 +48,9 @@ export const Navbar = ({ user }: NavbarProps) => {
                         <>
                             <Link href="/admin">admin</Link>
                             <Link href="/contatti">contattami</Link>
+                            <Link href="/progetti">progetti</Link>
                             <button
-                                className="rounded bg-red-500 p-2 text-white"
+                                className="mt-2 rounded bg-red-500 p-2 text-white md:mt-0"
                                 onClick={logout}
                             >
                                 logout

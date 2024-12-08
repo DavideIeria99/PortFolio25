@@ -31,18 +31,22 @@ export default function Create() {
     };
     return (
         <main>
-            <h1 className="uppercase">crea il progetto</h1>
-            <section className="flex h-full  *:w-1/2">
+            <h1 className="text-2xl uppercase md:text-4xl">crea il progetto</h1>
+            <section className="flex h-full flex-col-reverse *:w-full md:flex-row md:*:w-1/2">
                 {/* left prewiew */}
                 <div className="h-auto  bg-yellow-500">
-                    <h2 className="ms-3 uppercase text-white">prewiew</h2>
-                    <div className="px-52 py-10">
+                    <h2 className="ms-3 text-xl uppercase text-white md:text-2xl">
+                        prewiew
+                    </h2>
+                    <div className="p-3 md:px-52 md:py-10">
                         <Card name={name} image={image} prewiew />
                     </div>
                 </div>
                 {/* form dati */}
                 <div className="h-full bg-green-500">
-                    <h2 className="ms-3 uppercase text-white">dati</h2>
+                    <h2 className="ms-3 text-xl uppercase text-white md:text-2xl">
+                        dati
+                    </h2>
                     <FormCreate setPrewiew={handleFile} setName={setName} />
                 </div>
             </section>

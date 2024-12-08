@@ -20,14 +20,14 @@ export default async function Upsert({ params }: paramsProps) {
     return (
         <main>
             <section>
-                <h2 className="font-semibold text-white">
+                <h2 className=" font-semibold text-white">
                     {result?.template.name}
                 </h2>
             </section>
             <UpsertForm id={result.template.id}>
                 {/* //*tabella */}
                 {result.describe && result.describe.length > 0 ? (
-                    <section className=" w-full bg-blue-400">
+                    <section className=" mt-10 w-full overflow-auto ">
                         {result?.describe && (
                             <DataTable
                                 data={result.describe}

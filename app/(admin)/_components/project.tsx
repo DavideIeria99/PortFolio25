@@ -9,8 +9,8 @@ export default async function Project() {
         .select("*")
         .order("id");
     return (
-        <section className="w-2/3 overflow-auto bg-blue-500 px-2 py-4">
-            <div className=" grid w-full grid-cols-3 gap-2 ">
+        <section className="w-full  px-1 py-10 md:w-2/3 md:bg-blue-500 md:px-2 md:py-4">
+            <div className=" grid w-full grid-cols-2 gap-2 md:grid-cols-3 ">
                 {project &&
                     project.map((el) => (
                         <Card

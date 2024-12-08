@@ -37,11 +37,12 @@ export default function InsertDescribe({ id }: propsinsert) {
 
     return (
         <section
-            className="*:1/2 grid w-full grid-cols-2 bg-blue-300 px-12"
+            className="
+            flex w-full flex-col-reverse bg-blue-300 md:flex-row  md:px-12 md:*:w-1/2"
             id="insert"
         >
             <div>
-                <h2>prewiew</h2>
+                <h2>Prewiew</h2>
                 <h3>{name}</h3>
                 <p>{text}</p>
                 {image && (
@@ -49,7 +50,7 @@ export default function InsertDescribe({ id }: propsinsert) {
                 )}
             </div>
             <div>
-                <h3>form</h3>
+                <h3>Form</h3>
                 <form action={formCreateDescribe}>
                     {id && (
                         <input type="text" hidden defaultValue={id} name="id" />

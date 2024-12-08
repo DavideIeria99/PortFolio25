@@ -27,7 +27,7 @@ export default function UpsertForm({ children, id }: UpsertProps) {
             <button onClick={() => SetSubBottom(!SubBottom)}>
                 <Link
                     href="#insert"
-                    className=" rounded bg-orange-700 p-2 text-white"
+                    className="  rounded bg-orange-700 p-2 text-white"
                 >
                     {SubBottom
                         ? "nascondi form"

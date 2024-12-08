@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Hamburger = () => {
     return (
@@ -21,6 +21,14 @@ export default function NavMobile({
     children: React.ReactNode;
 }>) {
     const [isOpen, setIsOpen] = useState(false);
+    const [isPath, setIsPath] = useState(window.location.pathname);
+    useEffect(() => {
+        console.log();
+        if (isPath != window.location.pathname) {
+            setIsOpen(false);
+            setIsPath(window.location.pathname);
+        }
+    }, [isPath]);
     return (
         <section className=" me-3 text-end md:hidden">
             <button
@@ -30,7 +38,7 @@ export default function NavMobile({
                 {isOpen ? "X" : <Hamburger />}
             </button>
             <section
-                className={`absolute  right-0 top-20 w-full  rounded bg-gradient-to-b from-body  to-slate-200 p-6 text-start text-sm transition-all duration-700 ease-in  ${isOpen ? "flex flex-col" : " hidden"}`}
+                className={`absolute right-0  top-20 z-30 w-full rounded bg-gradient-to-b from-body to-slate-200  p-6 text-start text-sm capitalize transition-all duration-700 ease-in  ${isOpen ? "flex flex-col" : " hidden"}`}
             >
                 {children}
             </section>

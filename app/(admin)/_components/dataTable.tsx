@@ -20,8 +20,8 @@ export default function DataTable({ params, data }: tableProps) {
     console.log(data);
 
     return (
-        <table className="mt-4 min-w-full text-left text-sm font-light">
-            <thead className="border-b bg-blue-500 font-medium dark:border-neutral-500">
+        <table className=" min-w-full bg-blue-600 text-left text-sm font-light capitalize">
+            <thead className=" border-b bg-blue-500 font-medium ">
                 <tr>
                     <th scope="col" className="px-6 py-4">
                         Nome
@@ -47,7 +47,7 @@ export default function DataTable({ params, data }: tableProps) {
                             <td className="whitespace-nowrap text-wrap px-6 py-4 font-bold">
                                 {el.title}
                             </td>
-                            <td className="whitespace-nowrap px-6 py-4">
+                            <td className="whitespace-nowrap md:px-6 md:py-4">
                                 <Suspense fallback="caricamento..">
                                     <Image
                                         src={fechImage(el.image)}
