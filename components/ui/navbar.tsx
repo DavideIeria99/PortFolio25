@@ -4,6 +4,7 @@ import Logo from "../icons/logo";
 import { User } from "@supabase/supabase-js";
 import { createClient } from "@/utils/supabase/database/client";
 import { useRouter } from "next/navigation";
+import NavMobile from "./navMobile";
 
 interface NavbarProps {
     user?: User | null;
@@ -19,12 +20,12 @@ export const Navbar = ({ user }: NavbarProps) => {
     };
 
     return (
-        <nav className=" w-full bg-gradient-to-b from-slate-200 to-body p-6 ">
+        <nav className=" relative w-full bg-gradient-to-b from-slate-200 to-body p-6 ">
             <div className="mx-auto flex items-center justify-between">
                 <Link href="/" className=" p-1 ">
                     <Logo className=" h-12 w-48 md:w-64 " />
                 </Link>
-                <div className=" text-lg  font-bold uppercase *:mx-2 hover:*:underline  ">
+                <section className="hidden text-lg font-bold uppercase  *:mx-2 hover:*:underline md:inline   ">
                     <Link href="/progetti">progetti</Link>
 
                     {user ? (
@@ -41,7 +42,23 @@ export const Navbar = ({ user }: NavbarProps) => {
                     ) : (
                         ""
                     )}
-                </div>
+                </section>
+                <NavMobile>
+                    {user ? (
+                        <>
+                            <Link href="/admin">admin</Link>
+                            <Link href="/contatti">contattami</Link>
+                            <button
+                                className="rounded bg-red-500 p-2 text-white"
+                                onClick={logout}
+                            >
+                                logout
+                            </button>
+                        </>
+                    ) : (
+                        ""
+                    )}
+                </NavMobile>
             </div>
         </nav>
     );

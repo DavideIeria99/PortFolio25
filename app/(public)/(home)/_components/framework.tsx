@@ -103,14 +103,14 @@ export const Framework = () => {
                 </motion.div>
             </div>
             {/* mobile */}
-            <div className="flex w-full justify-around font-semibold uppercase md:hidden  ">
+            <div className="flex w-full flex-col justify-center font-semibold uppercase md:hidden  ">
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{
                         duration: 2,
                     }}
-                    className="w-1/3 "
+                    className="w-full "
                 >
                     <h3 className="mb-4 text-xl">linguaggi</h3>
                     <div className="grid grid-cols-2">
@@ -134,7 +134,7 @@ export const Framework = () => {
                     transition={{
                         duration: 2,
                     }}
-                    className="w-1/3 "
+                    className="w-full "
                 >
                     <h3 className="mb-4 text-xl">Framework</h3>
                     <div className="grid grid-cols-3 gap-2">

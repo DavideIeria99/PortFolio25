@@ -14,10 +14,10 @@ export default function SimpleContact() {
                     alt={"Linkedin"}
                     width={50}
                     height={50}
-                    className="mx-auto h-auto w-auto"
+                    className="mx-auto hidden h-auto w-auto md:inline"
                 />
             </Link>
-            <span className="my-auto  font-bold text-slate-600">
+            <span className="col-span-3 mx-auto font-bold  text-slate-600  md:col-span-1 md:mx-0">
                 davideieria1099@gmail.com
             </span>
         </section>
