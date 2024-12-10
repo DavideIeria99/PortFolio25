@@ -57,7 +57,7 @@ export const Navbar = ({ user }: NavbarProps) => {
                             </button>
                         </>
                     ) : (
-                        ""
+                        <Link href="/progetti">progetti</Link>
                     )}
                 </NavMobile>
             </div>
