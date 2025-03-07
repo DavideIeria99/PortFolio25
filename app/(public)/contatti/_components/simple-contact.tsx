@@ -8,13 +8,15 @@ export default function SimpleContact() {
             <h2 className="col-span-3 text-center text-2xl font-bold uppercase text-orange-400">
                 Contatti
             </h2>
-            <Link href={"https://www.linkedin.com/in/davide-ieria-dev/"}>
+            <Link
+                href={"https://www.linkedin.com/in/davide-ieria-dev/"}
+                className="relative h-10 w-10"
+            >
                 <Image
                     src={"/media/icon/linkedin.svg"}
                     alt={"Linkedin"}
-                    width={50}
-                    height={50}
-                    className="mx-auto hidden h-auto w-auto md:inline"
+                    fill
+                    className="mx-auto hidden h-10 w-10 object-contain md:inline"
                 />
             </Link>
             <span className="col-span-3 mx-auto font-bold  text-slate-600  md:col-span-1 md:mx-0">

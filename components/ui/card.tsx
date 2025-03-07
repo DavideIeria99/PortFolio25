@@ -46,6 +46,7 @@ export default function Card(card: cardProps) {
                     alt={card.name ?? "progetto"}
                     width={500}
                     height={500}
+                    priority
                     className="relative z-0 mx-auto size-full object-contain  "
                 />
             </section>
