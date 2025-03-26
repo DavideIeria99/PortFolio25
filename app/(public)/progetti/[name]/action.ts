@@ -18,7 +18,7 @@ export async function fechSupabase(name: string) {
         .eq("name", name)
         .single();
     if (!template) {
-        console.log("errore ");
+        //console.log("errore ");
         return;
     }
     const { data: describe } = await supabase

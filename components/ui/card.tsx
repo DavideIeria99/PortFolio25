@@ -31,7 +31,7 @@ export default function Card(card: cardProps) {
         }
     }, [card.image, card.name, card.prewiew, upsert]);
 
-    console.log(image);
+    //console.log(image);
 
     if (card.prewiew) {
         return (

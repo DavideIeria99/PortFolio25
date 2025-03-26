@@ -81,7 +81,7 @@ export const formCreateDescribe = async (formData: FormData) => {
     const nameFile = await supabaseClient.from("templates").select(`img,name`).eq('id', template_id).single();
     const field = nameFile.data?.img?.split('/')[0]
 
-    console.log(`${field} / ${imageName}`);
+    //console.log(`${field} / ${imageName}`);
 
 
     //*aggiungiamo il file
@@ -139,7 +139,7 @@ export const formUpsertDescribe = async (formData: FormData) => {
             if (data?.img == urlImage) {
                 const { error: dataError } = await supabaseClient.from('templates').update({ img: urlNewImage }).eq('id', template)
                 if (dataError) {
-                    console.log(dataError)
+                    //console.log(dataError)
                     return;
                 }
             }
@@ -176,33 +176,33 @@ export const deleteTemplate = async (id: number | null | undefined) => {
     const { data: template, error: errorTemplate } = await supabaseClient.from("templates").select('img').eq('id', id).single();
     const { data: describe, error: errorDescribe } = await supabaseClient.from("describe").select('image').eq('template_id', id);
     if (errorDescribe) {
-        console.log(errorDescribe);
+        //console.log(errorDescribe);
         return
     }
     if (errorTemplate) {
-        console.log(errorTemplate);
+        //console.log(errorTemplate);
         return
     }
 
     if (describe.length > 0) {
-        console.log("rimuoviamo le immagini in describe: ")
+        //console.log("rimuoviamo le immagini in describe: ")
         describe.forEach(element => {
             try {
                 const { } = supabaseClient.storage.from("template").remove([element.image]);
             } catch (error) {
-                console.log(error);
+                //console.log(error);
                 return
             }
         });
     }
     if (template.img) {
-        console.log("rimuoviamo l'immagine in template:");
+        //console.log("rimuoviamo l'immagine in template:");
         const { error: imageError } = await supabaseClient.storage.from("template").remove([template.img]);
         if (imageError) {
             return console.error(imageError);
         }
     }
-    console.log("rimuoviamo il template:");
+    //console.log("rimuoviamo il template:");
     const { error } = await supabaseClient.from("templates").delete().eq("id", id);
     if (error) {
         return console.log(error);
@@ -223,24 +223,24 @@ export const deleteDescribe = async (id: number | null | undefined) => {
     const { data: describe } = await supabaseClient.from("describe").select('image,template_id').eq('id', id).single();
 
     if (!describe) {
-        console.log("non c'è describe");
+        //console.log("non c'è describe");
         return
     }
 
     const { data: template } = await supabaseClient.from("templates").select('name').eq('id', describe.template_id).single();
 
 
-    console.log("rimuoviamo l'immagini in describe: ")
+    //console.log("rimuoviamo l'immagini in describe: ")
     try {
         const { } = supabaseClient.storage.from("template").remove([describe.image]);
     } catch (error) {
-        console.log(error);
+        //console.log(error);
         return
     }
-    console.log("rimuoviamo il describe: ")
+    //console.log("rimuoviamo il describe: ")
     const { error } = await supabaseClient.from("describe").delete().eq("id", id);
     if (error) {
-        console.log(error);
+        //console.log(error);
         return
     }
 

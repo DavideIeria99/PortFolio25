@@ -17,7 +17,7 @@ interface tableProps {
 }
 
 export default function DataTable({ params, data }: tableProps) {
-    console.log(data);
+    //console.log(data);
 
     return (
         <table className=" min-w-full bg-blue-600 text-left text-sm font-light capitalize">
