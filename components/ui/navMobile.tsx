@@ -24,13 +24,13 @@ export default function NavMobile({
     return (
         <section className=" me-3 text-end md:hidden">
             <button
-                className="size-10 rounded px-1 text-center shadow"
+                className="size-10 rounded-sm px-1 text-center shadow-sm"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 {isOpen ? "X" : <Hamburger />}
             </button>
             <section
-                className={`absolute right-0  top-20 z-30 w-full rounded bg-gradient-to-b from-body to-slate-200  p-6 text-start text-sm capitalize transition-all duration-700 ease-in  ${isOpen ? "flex flex-col" : " hidden"}`}
+                className={`absolute right-0  top-20 z-30 w-full rounded-sm bg-linear-to-b from-body to-slate-200  p-6 text-start text-sm capitalize transition-all duration-700 ease-in  ${isOpen ? "flex flex-col" : " hidden"}`}
             >
                 {children}
             </section>

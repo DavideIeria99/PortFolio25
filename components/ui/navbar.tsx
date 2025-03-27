@@ -20,12 +20,12 @@ export const Navbar = ({ user }: NavbarProps) => {
     };
 
     return (
-        <nav className=" relative w-full bg-gradient-to-b from-slate-200 to-body p-6 ">
+        <nav className=" relative w-full bg-linear-to-b from-slate-200 to-body p-6 ">
             <div className="mx-auto flex items-center justify-between">
                 <Link href="/" className=" p-1 ">
                     <Logo className=" h-12 w-48 md:w-64 " />
                 </Link>
-                <section className="hidden text-lg font-bold uppercase  *:mx-2 hover:*:underline md:inline   ">
+                <section className="hidden text-lg font-bold uppercase  *:mx-2 *:hover:underline md:inline   ">
                     <Link href="/progetti">progetti</Link>
 
                     {user ? (
@@ -33,7 +33,7 @@ export const Navbar = ({ user }: NavbarProps) => {
                             <Link href="/admin">admin</Link>
                             <Link href="/contatti">contattami</Link>
                             <button
-                                className="rounded bg-red-500 p-2 text-white"
+                                className="rounded-sm bg-red-500 p-2 text-white"
                                 onClick={logout}
                             >
                                 logout
@@ -50,7 +50,7 @@ export const Navbar = ({ user }: NavbarProps) => {
                             <Link href="/contatti">contattami</Link>
                             <Link href="/progetti">progetti</Link>
                             <button
-                                className="mt-2 rounded bg-red-500 p-2 text-white md:mt-0"
+                                className="mt-2 rounded-sm bg-red-500 p-2 text-white md:mt-0"
                                 onClick={logout}
                             >
                                 logout

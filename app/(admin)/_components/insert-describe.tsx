@@ -68,7 +68,7 @@ export default function InsertDescribe({ id }: propsinsert) {
                             name="name"
                             placeholder="titolo.."
                             onChange={(e) => setName(e.target.value)}
-                            className="w-full rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
+                            className="w-full rounded-sm border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-hidden transition-colors duration-200 ease-in-out focus:border-indigo-500"
                         />
                     </div>
                     <div className="w-full p-2">
@@ -84,7 +84,7 @@ export default function InsertDescribe({ id }: propsinsert) {
                             id="image"
                             name="image"
                             placeholder="image"
-                            className="w-full rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
+                            className="w-full rounded-sm border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-hidden transition-colors duration-200 ease-in-out focus:border-indigo-500"
                         />
                     </div>
                     {/* testo */}
@@ -100,7 +100,7 @@ export default function InsertDescribe({ id }: propsinsert) {
                             onChange={(e) => setText(e.target.value)}
                             id="message"
                             name="message"
-                            className="h-24 w-full resize-none rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
+                            className="h-24 w-full resize-none rounded-sm border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-6 text-gray-700 outline-hidden transition-colors duration-200 ease-in-out focus:border-indigo-500"
                         ></textarea>
                     </div>
                     <div className=" w-full p-2 md:col-span-2 ">

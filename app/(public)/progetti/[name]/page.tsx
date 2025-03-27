@@ -28,7 +28,7 @@ export default async function page({ params }: paramsProps) {
                 </h1>
                 {result.template.video && (
                     <a
-                        className=" rounded bg-orange-500 p-4  transition duration-200 hover:bg-orange-200 md:px-3 md:py-1  "
+                        className=" rounded-sm bg-orange-500 p-4  transition duration-200 hover:bg-orange-200 md:px-3 md:py-1  "
                         href="#video"
                     >
                         <button className="w-full text-center font-semibold uppercase">
@@ -58,7 +58,7 @@ export default async function page({ params }: paramsProps) {
                         presentazione
                     </h2>
                     <iframe
-                        className="mx-auto w-full rounded"
+                        className="mx-auto w-full rounded-sm"
                         allowFullScreen
                         src={`${result.template.video}`}
                         height="399"

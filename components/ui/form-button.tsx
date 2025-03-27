@@ -11,7 +11,7 @@ export const FormButton = ({ text }: formButtomProps) => {
     return (
         <button
             type="submit"
-            className=" mx-auto flex w-auto justify-around rounded  border-0 bg-indigo-500 px-8 py-2 text-lg text-white transition-transform  hover:bg-indigo-600 focus:outline-none"
+            className=" mx-auto flex w-auto justify-around rounded-sm  border-0 bg-indigo-500 px-8 py-2 text-lg text-white transition-transform  hover:bg-indigo-600 focus:outline-hidden"
         >
             <span>{text}</span>
             {pending && (

@@ -12,7 +12,7 @@ export default function Login() {
 
     return (
         <main>
-            <section className="mx-auto w-full rounded border-4 bg-slate-200 bg-opacity-50 p-3 md:w-1/2 md:border-orange-400 md:p-0">
+            <section className="mx-auto w-full rounded-sm border-4 bg-slate-200 bg-opacity-50 p-3 md:w-1/2 md:border-orange-400 md:p-0">
                 <div className="p-8 text-center sm:px-12 lg:px-16 lg:py-12 ">
                     <Logo className="mx-auto block h-12 w-full" />
 
@@ -36,7 +36,7 @@ export default function Login() {
                                 type="email"
                                 id="Email"
                                 name="email"
-                                className="mt-1 w-full  rounded-md border-gray-200 bg-body px-3 py-1 text-sm text-gray-700 shadow-sm"
+                                className="mt-1 w-full  rounded-md border-gray-200 bg-body px-3 py-1 text-sm text-gray-700 shadow-xs"
                             />
                         </div>
 
@@ -53,7 +53,7 @@ export default function Login() {
                                 type="password"
                                 id="Password"
                                 name="password"
-                                className="mt-1 w-full rounded-md border-gray-200 bg-body px-3 py-1 text-sm text-gray-700 shadow-sm"
+                                className="mt-1 w-full rounded-md border-gray-200 bg-body px-3 py-1 text-sm text-gray-700 shadow-xs"
                             />
                         </div>
                         <FormButton text={"login"} />

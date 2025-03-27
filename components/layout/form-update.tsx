@@ -47,7 +47,7 @@ export default function FormUpdate({ ...props }: dataProps) {
                     placeholder="Progetto"
                     defaultValue={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
+                    className="w-full rounded-sm border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-hidden transition-colors duration-200 ease-in-out focus:border-indigo-500"
                 />
             </div>
             <div className="w-full p-2">
@@ -62,7 +62,7 @@ export default function FormUpdate({ ...props }: dataProps) {
                     id="image"
                     name="image"
                     placeholder="image"
-                    className="w-full rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
+                    className="w-full rounded-sm border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-hidden transition-colors duration-200 ease-in-out focus:border-indigo-500"
                 />
             </div>
 
@@ -80,7 +80,7 @@ export default function FormUpdate({ ...props }: dataProps) {
                     onChange={(e) => setText(e.target.value)}
                     id="message"
                     name="message"
-                    className="h-24 w-full resize-none rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
+                    className="h-24 w-full resize-none rounded-sm border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-6 text-gray-700 outline-hidden transition-colors duration-200 ease-in-out focus:border-indigo-500"
                 ></textarea>
             </div>
             {/* submit */}

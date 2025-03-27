@@ -61,7 +61,7 @@ export default function DataTable({ params, data }: tableProps) {
                             <td className="whitespace-nowrap text-wrap px-6 py-4">
                                 {el.text}
                             </td>
-                            <td className="my-8 flex flex-col justify-center  text-center *:mx-auto *:my-2 *:rounded *:p-1">
+                            <td className="my-8 flex flex-col justify-center  text-center *:mx-auto *:my-2 *:rounded-sm *:p-1">
                                 <Link
                                     className="bg-orange-400 hover:bg-orange-300"
                                     href={`/admin/upsert/${params}/${el.id}`}

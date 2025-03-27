@@ -27,7 +27,7 @@ export default function FormContact() {
                     id="name"
                     name="name"
                     placeholder="Mario Rossi"
-                    className="w-full rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
+                    className="w-full rounded-sm border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-hidden transition-colors duration-200 ease-in-out focus:border-indigo-500"
                 />
             </div>
             {/* email */}
@@ -43,7 +43,7 @@ export default function FormContact() {
                     id="email"
                     name="email"
                     placeholder="mariorossi@gmail.com"
-                    className="w-full rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
+                    className="w-full rounded-sm border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-8 text-gray-700 outline-hidden transition-colors duration-200 ease-in-out focus:border-indigo-500"
                 />
             </div>
             {/* testo */}
@@ -58,7 +58,7 @@ export default function FormContact() {
                     placeholder="text..."
                     id="message"
                     name="message"
-                    className="h-32 w-full resize-none rounded border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500"
+                    className="h-32 w-full resize-none rounded-sm border border-gray-300 bg-gray-100 px-3 py-1 text-base leading-6 text-gray-700 outline-hidden transition-colors duration-200 ease-in-out focus:border-indigo-500"
                 ></textarea>
             </div>
             {/* submit */}

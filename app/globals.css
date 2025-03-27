@@ -1,16 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-:root {
-    --body: #ffc183;
-}
+@import "tailwindcss";
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+@config '../tailwind.config.ts';
 
 h1,
 h2,
@@ -19,28 +9,28 @@ h4,
 h5 {
     font-family: "Times New Roman", Times, serif;
 }
+/* Layout principale */
 main {
-    min-height: 100vh;
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+    @apply min-h-screen w-full px-2; /* Usa le classi Tailwind */
 }
 
+/* Titoli */
 h1 {
-    font-size: 4rem;
+    @apply text-4xl;
 }
 h2 {
-    font-size: 3rem;
+    @apply text-3xl;
 }
 h3 {
-    font-size: 2rem;
+    @apply text-2xl;
 }
 h4 {
-    font-size: 1rem;
+    @apply text-xl;
 }
 h5 {
-    font-size: 0.8rem;
+    @apply text-lg;
 }
-h6 {
-    font-size: 0.6rem;
+h6,
+p {
+    @apply text-base;
 }

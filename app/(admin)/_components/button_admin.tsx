@@ -19,11 +19,11 @@ export default function ButtonAdmin() {
     return (
         <>
             {/*@todo pulsanti */}
-            <div className="w-full rounded  bg-red-500 py-2 *:text-white md:w-1/3 md:py-10">
+            <div className="w-full rounded-sm  bg-red-500 py-2 *:text-white md:w-1/3 md:py-10">
                 <h1 className="text-center text-xl font-bold uppercase md:text-2xl">
                     {question}
                 </h1>
-                <section className="mx-auto mt-2 flex h-full flex-col items-center justify-center gap-y-4 *:w-1/2 *:rounded  *:p-1 *:text-center  *:font-bold *:uppercase  md:mx-0 md:*:w-1/3 ">
+                <section className="mx-auto mt-2 flex h-full flex-col items-center justify-center gap-y-4 *:w-1/2 *:rounded-sm  *:p-1 *:text-center  *:font-bold *:uppercase  md:mx-0 md:*:w-1/3 ">
                     <Link
                         href={"admin/create"}
                         className="bg-blue-500  hover:bg-blue-400 "
