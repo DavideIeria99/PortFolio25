@@ -14,7 +14,7 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const supabaseClient = createClient();
+    const supabaseClient = await createClient();
 
     const { data } = await supabaseClient.auth.getUser();
     const classBody = " bg-body w-screen md:w-full ";

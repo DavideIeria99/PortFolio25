@@ -1,7 +1,10 @@
-import { Config } from 'tailwindcss';
-
-const config: Config = {
-  content: ['./app/**/*.{js,ts,jsx,tsx}'], // Specifica i file in cui cercare le classi
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}", // Percorsi per i file nella directory app
+    "./pages/**/*.{js,ts,jsx,tsx}", // Percorsi per i file nella directory pages
+    "./components/**/*.{js,ts,jsx,tsx}", // Percorsi per i componenti
+  ],
   theme: {
     extend: {
       colors: {
@@ -38,5 +41,3 @@ const config: Config = {
   },
   plugins: [],
 };
-
-export default config;

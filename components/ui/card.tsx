@@ -35,9 +35,9 @@ export default function Card(card: cardProps) {
 
     if (card.prewiew) {
         return (
-            <section className="relative  h-auto w-full shadow-none *:rounded-sm hover:shadow-2xl hover:shadow-gray-500">
-                <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:bg-body/50  hover:opacity-100">
-                    <span className="rounded-sm bg-body p-3 text-2xl font-bold uppercase">
+            <section className="relative h-auto w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500">
+                <div className="hover:bg-body/50 absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:opacity-100">
+                    <span className="bg-body rounded p-3 text-2xl font-bold uppercase">
                         {card.name ?? "progetto"}
                     </span>
                 </div>
@@ -47,7 +47,7 @@ export default function Card(card: cardProps) {
                     width={500}
                     height={500}
                     priority
-                    className="relative z-0 mx-auto size-full object-contain  "
+                    className="relative z-0 mx-auto size-full object-contain"
                 />
             </section>
         );
@@ -57,10 +57,10 @@ export default function Card(card: cardProps) {
         return (
             <button
                 onClick={() => deleteTemplate(card.id)}
-                className="relative  h-auto w-full shadow-none *:rounded-sm hover:shadow-2xl hover:shadow-gray-500"
+                className="relative h-auto w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500"
             >
-                <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:bg-body/50  hover:opacity-100">
-                    <span className="rounded-sm bg-body p-3 text-2xl font-bold uppercase">
+                <div className="hover:bg-body/50 absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:opacity-100">
+                    <span className="bg-body rounded p-3 text-2xl font-bold uppercase">
                         {card.name ?? "progetto"}
                     </span>
                 </div>
@@ -69,7 +69,7 @@ export default function Card(card: cardProps) {
                     alt={card.name ?? "progetto"}
                     width={500}
                     height={500}
-                    className="relative z-0 mx-auto size-full object-contain  "
+                    className="relative z-0 mx-auto size-full object-contain"
                 />
             </button>
         );
@@ -77,10 +77,10 @@ export default function Card(card: cardProps) {
     return (
         <Link
             href={href}
-            className="relative  h-auto w-full shadow-none *:rounded-sm hover:shadow-2xl hover:shadow-gray-500"
+            className="relative h-auto w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500"
         >
-            <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:bg-body/50  hover:opacity-100">
-                <span className="rounded-sm bg-body p-3 text-2xl font-bold uppercase">
+            <div className="hover:bg-body/50 absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:opacity-100">
+                <span className="bg-body rounded p-3 text-2xl font-bold uppercase">
                     {card.name ?? "progetto"}
                 </span>
             </div>
@@ -89,7 +89,7 @@ export default function Card(card: cardProps) {
                 alt={card.name ?? "progetto"}
                 width={500}
                 height={500}
-                className="relative z-0 mx-auto size-full object-contain  "
+                className="relative z-0 mx-auto size-full object-contain"
             />
         </Link>
     );
