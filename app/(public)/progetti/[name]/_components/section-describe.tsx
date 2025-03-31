@@ -2,9 +2,8 @@
 import Image from "next/image";
 import { GetImage } from "../action";
 import { Database } from "@/database.types";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "@/components/ui/loader";
-import { p } from "framer-motion/client";
 import NameMode from "@/utils/namemode";
 
 interface describeProps {
@@ -44,7 +43,7 @@ export const SectionDescribe = ({ describe, reverse }: describeProps) => {
             className={`my-10 flex flex-col-reverse md:justify-center ${reverse ? "md:flex-row-reverse" : "md:flex-row"} `}
         >
             {loading && (
-                <div className="w-full object-contain md:w-1/2 md:object-cover">
+                <div className="w-full border-2 border-black object-contain md:w-1/2 md:object-cover">
                     <Loader />
                 </div>
             )}
