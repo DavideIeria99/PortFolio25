@@ -2,7 +2,7 @@
 import { fechSupabase, sectionProps } from "./action";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { SectionDescribe } from "./_components/section-Describe";
+import { SectionDescribe } from "./_components/section-describe";
 import NameMode from "@/utils/namemode";
 
 export default function Detail() {
@@ -21,7 +21,7 @@ export default function Detail() {
     if (!details) {
         return (
             <main className="px-10">
-                <p>Errore di caricamento</p>
+                <p className="text-bold text-5xl">Caricamento...</p>
             </main>
         );
     }
