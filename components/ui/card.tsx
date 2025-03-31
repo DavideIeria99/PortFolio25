@@ -16,7 +16,7 @@ type cardProps = {
 export default function Card(card: cardProps) {
     const upsert = useSearchParams().get("upsert");
     const deleteData = useSearchParams().get("delete");
-    const [href, setHreft] = useState(`progetti/${card.name}`);
+    const [href, setHreft] = useState(`/progetti/${card.name}`);
     const [image, setImage] = useState("/media/prova.png");
     useEffect(() => {
         if (card.image && !card.prewiew) {
@@ -26,8 +26,6 @@ export default function Card(card: cardProps) {
         }
         if (upsert) {
             setHreft(`admin/upsert/${card.name}`);
-        } else {
-            setHreft(`progetti/${card.name}`);
         }
     }, [card.image, card.name, card.prewiew, upsert]);
 

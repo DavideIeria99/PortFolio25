@@ -1,9 +1,8 @@
 @import "tailwindcss";
-
 @config '../tailwind.config.ts';
 
 body {
-    background: var(--body);
+    @apply bg-body w-screen md:w-full;
 }
 
 h1,
@@ -20,7 +19,7 @@ main {
 
 /* Titoli */
 h1 {
-    @apply text-4xl;
+    @apply text-4xl md:text-2xl;
 }
 h2 {
     @apply text-3xl;
@@ -37,4 +36,10 @@ h5 {
 h6,
 p {
     @apply text-base;
+}
+
+/*sezione dettagli*/
+
+div.details {
+    @apply mb-3 w-full px-10 md:mb-0 md:w-1/2;
 }

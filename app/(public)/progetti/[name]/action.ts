@@ -1,3 +1,4 @@
+'use server'
 import { Database } from "@/database.types";
 import { createClient } from "@/utils/supabase/database/server";
 import NameMode from "@/utils/namemode";
@@ -5,17 +6,17 @@ import NameMode from "@/utils/namemode";
 
 
 export interface sectionProps {
-    Sect: Database["public"]["Tables"]["describe"]["Row"];
+    describe: Database["public"]["Tables"]["describe"]["Row"][];
+    template: Database["public"]["Tables"]["templates"]["Row"];
 }
 
-
 export async function fechSupabase(name: string) {
-    const supabase = createClient();
-
+    const stringName = NameMode(name);
+    const supabase = await createClient();
     const { data: template } = await supabase
         .from("templates")
         .select("*")
-        .eq("name", name)
+        .eq("name", stringName)
         .single();
     if (!template) {
         //console.log("errore ");
@@ -27,19 +28,18 @@ export async function fechSupabase(name: string) {
         .eq("template_id", template.id)
         .order("id");
 
-    const result = { describe, template }
+    if (template && describe) {
+        const result: sectionProps = { template, describe }
 
-    return result
+        return result
+    }
+
 
 }
 
 
-
-
-export function GetImage(image: string) {
-    const supabase = createClient();
-
+export async function GetImage(image: string) {
+    const supabase = await createClient();
     const { data: img } = supabase.storage.from("template").getPublicUrl(image);
-
     return NameMode(img.publicUrl);
 }

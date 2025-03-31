@@ -1,9 +1,8 @@
 import Card from "@/components/ui/card";
-
 import { createClient } from "@/utils/supabase/database/server";
 
 export default async function page() {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: template } = await supabase.from("templates").select("*");
 
     if (!template) {

@@ -1,75 +1,87 @@
-import { SectionRight } from "./_components/sectionRight";
-import { SectionLeft } from "./_components/sectionLeft";
+"use client";
+import { fechSupabase, sectionProps } from "./action";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { SectionDescribe } from "./_components/section-Describe";
 import NameMode from "@/utils/namemode";
-import { fechSupabase } from "./action";
 
-interface paramsProps {
-    params: {
-        name: string;
-    };
-}
+export default function Detail() {
+    const [details, setDetails] = useState<sectionProps | null>(null);
+    const { name }: { name: string } = useParams();
+    useEffect(() => {
+        const stringName = NameMode(name); // Gestione di valori vuoti
+        console.log("StringName:", stringName); // Debug per verificare stringName
+        fechSupabase(stringName).then((r) => {
+            if (r) {
+                setDetails(r);
+            }
+        });
+    }, [name]);
 
-export default async function page({ params }: paramsProps) {
-    const stringName = NameMode(params.name);
-    const result = await fechSupabase(stringName);
-
-    if (!result) {
+    if (!details) {
         return (
             <main className="px-10">
-                <p>errore di caricamento</p>
+                <p>Errore di caricamento</p>
             </main>
         );
     }
+
     return (
         <main className="px-10">
             <section className="flex gap-3">
                 <h1 className="text-2xl font-bold uppercase md:text-4xl">
-                    {stringName}
+                    {details.template.name}
                 </h1>
-                {result.template.video && (
+                {details.template.video && (
                     <a
-                        className=" rounded-sm bg-orange-500 p-4  transition duration-200 hover:bg-orange-200 md:px-3 md:py-1  "
+                        className="rounded-sm bg-orange-500 p-4 transition duration-200 hover:bg-orange-200 md:px-3 md:py-1"
                         href="#video"
                     >
                         <button className="w-full text-center font-semibold uppercase">
-                            video
+                            Video
                         </button>
                     </a>
                 )}
             </section>
             <section>
-                <p>{result.template.description}</p>
+                <p>{details.template.description}</p>
             </section>
 
-            {result.describe &&
-                result.describe.map((el) => {
+            {details.describe &&
+                details.describe.map((el) => {
                     if (el.id % 2 === 0) {
-                        return <SectionRight key={el.id} Sect={el} />;
+                        return <SectionDescribe key={el.id} describe={el} />;
                     } else {
-                        return <SectionLeft key={el.id} Sect={el} />;
+                        return (
+                            <SectionDescribe
+                                key={el.id}
+                                describe={el}
+                                reverse
+                            />
+                        );
                     }
                 })}
-            {result.template.video && (
+            {details.template.video && (
                 <section>
                     <h2
                         className="text-xl font-bold uppercase md:text-2xl"
                         id="video"
                     >
-                        presentazione
+                        Presentazione
                     </h2>
                     <iframe
                         className="mx-auto w-full rounded-sm"
                         allowFullScreen
-                        src={`${result.template.video}`}
+                        src={`${details.template.video}`}
                         height="399"
                         width="800"
-                        title={result.template.name}
+                        title={details.template.name}
                     ></iframe>
                 </section>
             )}
-            {result.describe && result.describe.length == 0 && (
+            {details.describe && details.describe.length === 0 && (
                 <h2 className="mt-10 font-semibold text-white">
-                    non sono presenti dati
+                    Non sono presenti dati
                 </h2>
             )}
         </main>

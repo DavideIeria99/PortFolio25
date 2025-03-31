@@ -6,5 +6,7 @@ export function fechImage(imageUrl: string) {
     const { data: image } = supabase.storage
         .from("template")
         .getPublicUrl(imageUrl);
+    console.log(image.publicUrl);
+
     return NameMode(image.publicUrl);
 }

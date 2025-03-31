@@ -17,10 +17,10 @@ export default async function RootLayout({
     const supabaseClient = await createClient();
 
     const { data } = await supabaseClient.auth.getUser();
-    const classBody = " bg-body w-screen md:w-full ";
+
     return (
         <html lang="en">
-            <body className={classBody}>
+            <body>
                 <Navbar user={data.user} />
                 {children}
                 <Footer />
