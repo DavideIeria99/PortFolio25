@@ -1,4 +1,3 @@
-import { error } from "console";
 import NameMode from "./namemode";
 import { createClient } from "./supabase/database/client";
 
@@ -7,7 +6,6 @@ export function fechImage(imageUrl: string) {
     const { data: image } = supabase.storage
         .from("template")
         .getPublicUrl(imageUrl);
-    console.log(image.publicUrl);
 
     return NameMode(image.publicUrl, 'img');
 }

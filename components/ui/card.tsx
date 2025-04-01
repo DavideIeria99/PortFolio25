@@ -1,80 +1,26 @@
 "use client";
-import { deleteTemplate } from "@/app/(admin)/action";
 import { fechImage } from "@/utils/fechtImage";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type cardProps = {
     name?: string | null;
     image?: string | null;
     id?: number | null;
-    prewiew?: boolean;
 };
 
 export default function Card(card: cardProps) {
-    const upsert = useSearchParams().get("upsert");
-    const deleteData = useSearchParams().get("delete");
-    const [href, setHreft] = useState(`/progetti/${card.name}`);
     const [image, setImage] = useState("/media/prova.png");
     useEffect(() => {
-        if (card.image && !card.prewiew) {
+        if (typeof card.image == "string") {
             setImage(fechImage(card.image));
-        } else if (card.image && card.prewiew) {
-            setImage(card.image);
         }
-        if (upsert) {
-            setHreft(`admin/upsert/${card.name}`);
-        }
-    }, [card.image, card.name, card.prewiew, upsert]);
+    }, [card.image, card.name]);
 
-    //console.log(image);
-
-    if (card.prewiew) {
-        return (
-            <section className="relative h-auto w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500">
-                <div className="hover:bg-body/50 absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:opacity-100">
-                    <span className="bg-body rounded p-3 text-2xl font-bold uppercase">
-                        {card.name ?? "progetto"}
-                    </span>
-                </div>
-                <Image
-                    src={image}
-                    alt={card.name ?? "progetto"}
-                    width={500}
-                    height={500}
-                    priority
-                    className="relative z-0 mx-auto size-full object-contain"
-                />
-            </section>
-        );
-    }
-
-    if (deleteData && card.id) {
-        return (
-            <button
-                onClick={() => deleteTemplate(card.id)}
-                className="relative h-auto w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500"
-            >
-                <div className="hover:bg-body/50 absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:opacity-100">
-                    <span className="bg-body rounded p-3 text-2xl font-bold uppercase">
-                        {card.name ?? "progetto"}
-                    </span>
-                </div>
-                <Image
-                    src={image}
-                    alt={card.name ?? "progetto"}
-                    width={500}
-                    height={500}
-                    className="relative z-0 mx-auto size-full object-contain"
-                />
-            </button>
-        );
-    }
     return (
         <Link
-            href={href}
+            href={`/progetti/${card.name}`}
             className="relative h-auto w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500"
         >
             <div className="hover:bg-body/50 absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:opacity-100">
@@ -87,6 +33,7 @@ export default function Card(card: cardProps) {
                 alt={card.name ?? "progetto"}
                 width={500}
                 height={500}
+                priority
                 className="relative z-0 mx-auto size-full object-contain"
             />
         </Link>

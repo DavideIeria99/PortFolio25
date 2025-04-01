@@ -20,7 +20,7 @@ export default function NameMode(text: string, type?: string) {
         }
     }
     const stringName = testName.join("").trimEnd();
-    console.log("risultato: ", stringName);
+    // console.log("risultato: ", stringName);
 
     return stringName;
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
-import { createClient } from "@/utils/supabase/database/server";
 
 export const metadata: Metadata = {
     title: "Portfolio",
@@ -14,14 +13,10 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const supabaseClient = await createClient();
-
-    const { data } = await supabaseClient.auth.getUser();
-
     return (
         <html lang="en">
             <body>
-                <Navbar user={data.user} />
+                <Navbar />
                 {children}
                 <Footer />
             </body>
