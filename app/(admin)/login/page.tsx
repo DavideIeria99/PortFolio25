@@ -1,19 +1,19 @@
 "use client";
 import Logo from "@/components/icons/logo";
 import { FormButton } from "@/components/ui/form-button";
-import { useFormState } from "react-dom";
 import { FormState, loginAction } from "../action";
+import { useActionState } from "react";
 
 const initialState: FormState = {
     message: "",
 };
 export default function Login() {
-    const [state, formAction] = useFormState(loginAction, initialState);
+    const [state, formAction] = useActionState(loginAction, initialState);
 
     return (
         <main>
-            <section className="mx-auto w-full rounded-sm border-4 bg-slate-200 bg-opacity-50 p-3 md:w-1/2 md:border-orange-400 md:p-0">
-                <div className="p-8 text-center sm:px-12 lg:px-16 lg:py-12 ">
+            <section className="bg-opacity-50 mx-auto w-full rounded-sm border-4 bg-slate-200 p-3 md:w-1/2 md:border-orange-400 md:p-0">
+                <div className="p-8 text-center sm:px-12 lg:px-16 lg:py-12">
                     <Logo className="mx-auto block h-12 w-full" />
 
                     <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
@@ -23,7 +23,7 @@ export default function Login() {
                         action={formAction}
                         className="mt-8 p-2 *:my-2 lg:p-5"
                     >
-                        <div className="mx-auto  ">
+                        <div className="mx-auto">
                             <label
                                 htmlFor="Email"
                                 className="block text-sm font-medium text-gray-700"
@@ -36,7 +36,7 @@ export default function Login() {
                                 type="email"
                                 id="Email"
                                 name="email"
-                                className="mt-1 w-full  rounded-md border-gray-200 bg-body px-3 py-1 text-sm text-gray-700 shadow-xs"
+                                className="bg-body mt-1 w-full rounded-md border-gray-200 px-3 py-1 text-sm text-gray-700 shadow-xs"
                             />
                         </div>
 
@@ -53,7 +53,7 @@ export default function Login() {
                                 type="password"
                                 id="Password"
                                 name="password"
-                                className="mt-1 w-full rounded-md border-gray-200 bg-body px-3 py-1 text-sm text-gray-700 shadow-xs"
+                                className="bg-body mt-1 w-full rounded-md border-gray-200 px-3 py-1 text-sm text-gray-700 shadow-xs"
                             />
                         </div>
                         <FormButton text={"login"} />

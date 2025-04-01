@@ -1,22 +1,18 @@
 "use server"
-
-
 import createName from "@/utils/nameCreate";
 import { createClient } from "@/utils/supabase/database/server";
-
 import { redirect } from "next/navigation";
 
 export type FormState = {
     message: string;
 }
 
-
 //?auth
 export async function loginAction(prevState: FormState, formData: FormData) {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    const supabaseClient = createClient();
+    const supabaseClient = await createClient();
     const { error } = await supabaseClient.auth.signInWithPassword({
         email, password,
     })
@@ -39,7 +35,7 @@ export const formCreateTemplate = async (formData: FormData) => {
     const imageName = `template.${imageExt}`;
 
     //*richiamiamo supabase
-    const supabaseClient = createClient();
+    const supabaseClient = await createClient();
     const auth = await supabaseClient.auth.getUser();
 
     //*aggiungiamo il file
@@ -76,7 +72,7 @@ export const formCreateDescribe = async (formData: FormData) => {
 
 
     //*controlliamo se siamo auth
-    const supabaseClient = createClient();
+    const supabaseClient = await createClient();
     const auth = await supabaseClient.auth.getUser();
     const nameFile = await supabaseClient.from("templates").select(`img,name`).eq('id', template_id).single();
     const field = nameFile.data?.img?.split('/')[0]
@@ -117,7 +113,7 @@ export const formUpsertDescribe = async (formData: FormData) => {
     const message = formData.get("message") as string;
 
     //*richiamiamo supabase
-    const supabaseClient = createClient();
+    const supabaseClient = await createClient();
     const auth = await supabaseClient.auth.getUser();
 
     //*modifichiamo il nome
@@ -168,7 +164,7 @@ export const formUpsertDescribe = async (formData: FormData) => {
 //?cancellare template
 export const deleteTemplate = async (id: number | null | undefined) => {
     //se ce l'id
-    const supabaseClient = createClient();
+    const supabaseClient = await createClient();
     if (!id) {
         return
     }
@@ -215,7 +211,7 @@ export const deleteTemplate = async (id: number | null | undefined) => {
 //?cancellare describe
 export const deleteDescribe = async (id: number | null | undefined) => {
     //se ce l'id
-    const supabaseClient = createClient();
+    const supabaseClient = await createClient();
     if (!id) {
         return
     }

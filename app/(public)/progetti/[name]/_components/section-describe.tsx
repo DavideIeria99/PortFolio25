@@ -60,7 +60,7 @@ export const SectionDescribe = ({ describe, reverse }: describeProps) => {
 
             <div className="details">
                 <h3 className="text-xl font-semibold uppercase md:text-2xl">
-                    {NameMode(describe.title)}
+                    {NameMode(describe.title, "title")}
                 </h3>
                 <p className="mt-2 text-justify md:mt-20">{describe.text}</p>
             </div>
