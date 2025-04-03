@@ -14,6 +14,7 @@ export const Hero = () => {
                     alt={"hero"}
                     height={800}
                     width={800}
+                    priority
                     className="w-full"
                 />
             </div>
