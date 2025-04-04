@@ -14,28 +14,18 @@ interface describeProps {
 export const SectionDescribe = ({ describe, reverse }: describeProps) => {
     const [img, setImg] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const loadImage = async () => {
-            setLoading(true);
-            setError(null); // Reset error on new image load
-            try {
-                const imageSrc = await GetImage(describe.image);
-                if (imageSrc) {
-                    setImg(imageSrc);
+        setLoading(true);
+        GetImage(describe.image)
+            .then((r) => {
+                if (r) {
+                    setImg(r);
                 } else {
-                    setError("Image not found");
+                    setImg("/media/cover.png");
                 }
-            } catch (e: any) {
-                console.error("Could not load image", e);
-                setError("Could not load image");
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadImage();
+            })
+            .finally(() => setLoading(false));
     }, [describe.image]);
 
     return (
@@ -47,7 +37,6 @@ export const SectionDescribe = ({ describe, reverse }: describeProps) => {
                     <Loader />
                 </div>
             )}
-            {error && <p>Errore nel caricamento dell'immagine</p>}
             {img && (
                 <Image
                     src={img}

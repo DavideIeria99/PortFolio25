@@ -11,7 +11,7 @@ type cardProps = {
 };
 
 export default function Card(card: cardProps) {
-    const [image, setImage] = useState("/media/prova.png");
+    const [image, setImage] = useState("/media/cover.png");
     useEffect(() => {
         if (typeof card.image == "string") {
             setImage(fechImage(card.image));
