@@ -28,6 +28,7 @@ export const Project = async () => {
                                     duration: 2,
                                     delay: parseFloat(`.${el.id}`),
                                 }}
+                                className="rounded p-2 shadow-xl"
                             >
                                 <Card name={el.name} image={el.img} />
                             </motion.div>
@@ -42,7 +43,7 @@ export const Project = async () => {
                         duration: 2,
                         delay: 0.5,
                     }}
-                    className="rounded-sm bg-[#FFE5CA] p-2 hover:bg-slate-200"
+                    className="rounded-sm border border-transparent bg-[#FFE5CA] p-2 hover:bg-slate-200 active:border-amber-200"
                 >
                     alti progetti
                 </motion.button>

@@ -47,7 +47,7 @@ export const SectionDescribe = ({ describe, reverse }: describeProps) => {
                 />
             )}
 
-            <div className="details">
+            <div className="mb-3 w-full px-10 md:mb-0 md:w-1/2">
                 <h3 className="text-xl font-semibold uppercase md:text-2xl">
                     {NameMode(describe.title, "title")}
                 </h3>

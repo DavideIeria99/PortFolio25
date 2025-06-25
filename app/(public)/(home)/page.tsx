@@ -11,7 +11,6 @@ export default async function Home() {
             <Hero />
             <main className="px-5">
                 <WhoIam />
-                <Story />
                 <Framework />
                 <Project />
             </main>

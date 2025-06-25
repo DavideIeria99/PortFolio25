@@ -4,7 +4,7 @@ import Image from "next/image";
 export const Hero = () => {
     return (
         <header className="flex w-full flex-col-reverse content-center md:flex-row md:justify-evenly">
-            <div className="my-auto h-full pt-5 text-center font-serif font-bold *:text-4xl md:w-1/2 md:pt-0">
+            <div className="my-auto h-full pt-5 text-center font-serif font-bold md:w-1/2 md:pt-0">
                 <h1>Davide Ieria</h1>
                 <h2>web developer</h2>
             </div>

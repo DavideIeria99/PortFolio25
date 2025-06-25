@@ -1,10 +1,24 @@
+/* Import Tailwind CSS */
 @import "tailwindcss";
-@config '../tailwind.config.ts';
 
-body {
-    @apply bg-body w-screen md:w-full;
+/* =========================
+    Variabili CSS globali @audit-info
+    ========================= */
+:root {
+    --body: #ffc183;
+    --bodyLight: #ffe5ca;
 }
 
+/* =========================
+    Body @info
+    ========================= */
+body {
+    @apply bg-body h-screen;
+}
+
+/* =========================
+    Font Titoli @info
+    ========================= */
 h1,
 h2,
 h3,
@@ -12,34 +26,73 @@ h4,
 h5 {
     font-family: "Times New Roman", Times, serif;
 }
-/* Layout principale */
+
+/* =========================
+    Layout principale @info
+    ========================= */
 main {
-    @apply min-h-screen w-full px-2; /* Usa le classi Tailwind */
+    @apply min-h-screen px-2; /* Usa le classi Tailwind */
 }
 
-/* Titoli */
+/* =========================
+    Tema personalizzato (non standard CSS) @audit-info
+    ========================= */
+@theme default {
+    --color-body: var(--body);
+    --color-bodylight: var(--bodylight);
+
+    --animate-fadeInLeft: "fade-left 1s backwards";
+    --animate-fadeInBottom: "fade-bottom 1s backwards";
+}
+
+/* =========================
+    Animazioni Keyframes @info
+    ========================= */
+@keyframes fade-left {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-bottom {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* =========================
+    Titoli @info
+    ========================= */
 h1 {
-    @apply text-4xl md:text-2xl;
+    @apply text-2xl md:text-4xl;
 }
 h2 {
-    @apply text-3xl;
+    @apply text-2xl md:text-3xl;
 }
 h3 {
-    @apply text-2xl;
+    @apply text-xl md:text-2xl;
 }
 h4 {
-    @apply text-xl;
+    @apply text-lg md:text-xl;
 }
-h5 {
-    @apply text-lg;
-}
-h6,
+
+/* =========================
+    Paragrafi @info
+    ========================= */
 p {
-    @apply text-base;
+    @apply text-base md:text-lg;
 }
 
-/*sezione dettagli*/
-
-div.details {
-    @apply mb-3 w-full px-10 md:mb-0 md:w-1/2;
-}
+/* =========================
+    Sezione dettagli @todo
+    ========================= */

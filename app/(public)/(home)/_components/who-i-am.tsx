@@ -1,34 +1,32 @@
-import { HomeIcon, MapsIcon, TecnicIcon, WebIcon } from "./Icons";
+import { Code2, MapPin, Settings } from "lucide-react";
+
 import * as motion from "framer-motion/client";
+import TitleSection from "@/components/ui/title-section";
 
 interface cardStoryProps {
-    Children: React.ReactNode;
+    icon: React.ReactNode;
     text: string;
 }
 const WhoStory: cardStoryProps[] = [
     {
-        Children: <WebIcon className="mx-auto w-10 md:w-20" />,
+        icon: <Code2 className="size-10 md:size-20" />,
         text: "junior web",
     },
     {
-        Children: <TecnicIcon className="mx-auto w-10 md:w-20" />,
-        text: "tecnico pc smartphone tablet",
+        icon: <Settings className="size-10 md:size-20" />,
+        text: "tecnico informatico e mobile",
     },
     {
-        Children: <MapsIcon className="mx-auto w-10 md:w-20" />,
-        text: "italiano",
-    },
-    {
-        Children: <HomeIcon className="w-10 md:w-20" />,
-        text: "sede o remoto",
+        icon: <MapPin className="size-10 md:size-20" />,
+        text: "Italia",
     },
 ];
 
 export const WhoIam = () => {
     return (
-        <section className="my-8">
-            <h2 className="mb-5 text-2xl font-bold uppercase">Chi sono</h2>
-            <div className="gap grid w-full grid-cols-2 gap-x-3 gap-y-6 text-center uppercase md:grid-cols-4 md:gap-4">
+        <article className="my-8">
+            <TitleSection title="chi sono" />
+            <section className="grid w-full grid-cols-1 place-items-center gap-y-4 text-center uppercase md:grid-cols-3 md:gap-x-5 md:gap-y-0">
                 {WhoStory &&
                     WhoStory.map((el, _) => (
                         <motion.div
@@ -39,15 +37,13 @@ export const WhoIam = () => {
                                 delay: parseFloat(`.${_}`),
                             }}
                             key={_}
-                            className="w-full rounded-sm border-b-4 border-black"
+                            className="flex h-50 w-70 flex-col justify-center rounded-xl border-2 border-orange-300 shadow-2xl shadow-orange-300 md:h-35 md:rounded-sm md:border-0 md:border-b-4 md:border-b-black"
                         >
-                            <div className="flex justify-center">
-                                {el.Children}
-                            </div>
+                            <div className="flex justify-center">{el.icon}</div>
                             <p className="text-lg">{el.text}</p>
                         </motion.div>
                     ))}
-            </div>
-        </section>
+            </section>
+        </article>
     );
 };

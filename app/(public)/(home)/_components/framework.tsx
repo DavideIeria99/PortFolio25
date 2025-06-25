@@ -1,158 +1,85 @@
 import Image from "next/image";
 import * as motion from "framer-motion/client";
+import TitleSection from "@/components/ui/title-section";
+import clsx from "clsx";
 
 const arrLing = [
     {
-        img: "media/icon/Html.svg",
-        name: "Html",
+        id: 1,
+        img: "/media/icon/python.svg",
+        name: "python",
     },
     {
-        img: "media/icon/CSS.svg",
-        name: "Css",
-    },
-    {
+        id: 2,
         img: "media/icon/Js.svg",
         name: "JS",
     },
     {
+        id: 3,
         img: "media/icon/php.svg",
         name: "PHP",
     },
-];
-const arrFrame = [
     {
+        id: 4,
         img: "media/icon/Laravel.svg",
         name: "Laravel",
     },
     {
+        id: 5,
         img: "media/icon/React.svg",
         name: "React",
     },
     {
+        id: 6,
         img: "media/icon/bootstrap.svg",
         name: "bootstrap",
     },
     {
+        id: 7,
         img: "media/icon/Vue.svg",
         name: "Vue",
     },
     {
+        id: 8,
         img: "media/icon/Tailwind.svg",
         name: "Tailwind",
     },
     {
+        id: 9,
         img: "media/icon/nextjs.svg",
         name: "Nextjs",
     },
 ];
+
 export const Framework = () => {
     return (
-        <section className="my-10  w-full ">
-            <h2 className="mb-5 text-2xl font-bold uppercase">
-                FrameWork e linguaggi
-            </h2>
+        <article className="my-20 w-full">
+            <TitleSection title="FrameWork e linguaggi" />
             {/* computer */}
-            <div className="hidden  w-full justify-around font-semibold uppercase md:flex  ">
-                <motion.div
-                    initial={{ opacity: 0, x: -100 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{
-                        duration: 2,
-                    }}
-                    className="w-1/3 "
-                >
-                    <h3 className="mb-4 text-xl">linguaggi</h3>
-                    <div className="grid grid-cols-2">
-                        {arrLing.map((el) => {
-                            return (
-                                <Image
-                                    key={el.name}
-                                    width={500}
-                                    height={500}
-                                    src={el.img}
-                                    alt={el.name}
-                                    className="size-12 md:size-24"
-                                />
-                            );
-                        })}
-                    </div>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, x: 100 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{
-                        duration: 3,
-                    }}
-                    className="w-1/3 "
-                >
-                    <h3 className="mb-4 text-xl">Framework</h3>
-                    <div className="grid grid-cols-3 gap-2">
-                        {arrFrame.map((el) => {
-                            return (
-                                <Image
-                                    key={el.name}
-                                    width={500}
-                                    height={500}
-                                    src={el.img}
-                                    alt={el.name}
-                                    className="size-12 md:size-24"
-                                />
-                            );
-                        })}
-                    </div>
-                </motion.div>
-            </div>
-            {/* mobile */}
-            <div className="flex w-full flex-col justify-center font-semibold uppercase md:hidden  ">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                        duration: 2,
-                    }}
-                    className="w-full "
-                >
-                    <h3 className="mb-4 text-xl">linguaggi</h3>
-                    <div className="grid grid-cols-2">
-                        {arrLing.map((el) => {
-                            return (
-                                <Image
-                                    key={el.name}
-                                    width={500}
-                                    height={500}
-                                    src={el.img}
-                                    alt={el.name}
-                                    className="size-12 md:size-24"
-                                />
-                            );
-                        })}
-                    </div>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                        duration: 2,
-                    }}
-                    className="w-full "
-                >
-                    <h3 className="mb-4 text-xl">Framework</h3>
-                    <div className="grid grid-cols-3 gap-2">
-                        {arrFrame.map((el) => {
-                            return (
-                                <Image
-                                    key={el.name}
-                                    width={500}
-                                    height={500}
-                                    src={el.img}
-                                    alt={el.name}
-                                    className="size-12 md:size-24"
-                                />
-                            );
-                        })}
-                    </div>
-                </motion.div>
-            </div>
-        </section>
+            <section className="grid w-full grid-cols-3 md:grid-cols-9 md:grid-rows-4">
+                {arrLing.map((el) => {
+                    return (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{
+                                duration: 2,
+                                delay: parseFloat(`1.${el.id}`),
+                            }}
+                            key={el.id}
+                            className="flex items-end justify-center p-5 md:row-span-2 md:p-0 md:odd:row-end-3 md:even:row-span-3 md:even:row-start-2"
+                        >
+                            <Image
+                                width={500}
+                                height={500}
+                                src={el.img}
+                                alt={el.name}
+                                className="size-12 md:size-20"
+                            />
+                        </motion.div>
+                    );
+                })}
+            </section>
+        </article>
     );
 };
