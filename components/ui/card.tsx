@@ -21,7 +21,7 @@ export default function Card(card: cardProps) {
     return (
         <Link
             href={`/progetti/${card.name}`}
-            className="relative h-auto w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500"
+            className="relative h-full w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500"
         >
             <div className="hover:bg-body/50 absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:opacity-100">
                 <span className="bg-body rounded p-3 text-2xl font-bold uppercase">
