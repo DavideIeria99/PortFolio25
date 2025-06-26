@@ -86,6 +86,9 @@ h4 {
     @apply text-lg md:text-xl;
 }
 
+.h1-header {
+    @apply text-4xl font-black tracking-widest uppercase md:text-8xl;
+}
 /* =========================
     Paragrafi @info
     ========================= */

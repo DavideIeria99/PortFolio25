@@ -12,14 +12,14 @@ export const Navbar = () => {
                 </Link>
                 <ul className="hidden gap-x-4 text-lg font-bold uppercase *:mx-2 *:hover:underline md:inline">
                     <Link href="/progetti">progetti</Link>
-                    <Link href="/progetti">about</Link>
-                    <Link href="/progetti">contatti</Link>
+                    <Link href="/about">about</Link>
+                    <Link href="/contatti">contatti</Link>
                 </ul>
 
                 <NavMobile>
                     <Link href="/progetti">progetti</Link>
-                    <Link href="/progetti">about</Link>
-                    <Link href="/progetti">contatti</Link>
+                    <Link href="/about">about</Link>
+                    <Link href="/contatti">contatti</Link>
                 </NavMobile>
             </div>
         </nav>
