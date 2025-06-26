@@ -15,7 +15,7 @@ export const Project = async () => {
     return (
         <section className="my-4">
             <TitleSection title="progetti" />
-            <div className="gird-cols-4 grid h-auto w-full gap-x-6 px-3 lg:grid-cols-3">
+            <div className="grid h-auto w-full grid-cols-2 gap-x-6 px-3 lg:grid-cols-3">
                 {data &&
                     data.map((el) => {
                         return (
@@ -33,21 +33,21 @@ export const Project = async () => {
                             </motion.div>
                         );
                     })}
-            </div>
-            <div className="my-10 flex w-full justify-center">
-                <Link href={"/progetti"}>
-                    <motion.button
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{
-                            duration: 2,
-                            delay: 0.5,
-                        }}
-                        className="rounded-sm border border-transparent bg-[#FFE5CA] p-2 hover:bg-slate-200 active:border-amber-200"
-                    >
-                        alti progetti
-                    </motion.button>
-                </Link>
+                <div className="my-10 flex w-full justify-center md:col-span-3">
+                    <Link href={"/progetti"}>
+                        <motion.button
+                            initial={{ opacity: 0, y: 100 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{
+                                duration: 2,
+                                delay: 0.5,
+                            }}
+                            className="rounded-sm border border-transparent bg-[#FFE5CA] p-2 hover:bg-slate-200 active:border-amber-200"
+                        >
+                            alti progetti
+                        </motion.button>
+                    </Link>
+                </div>
             </div>
         </section>
     );

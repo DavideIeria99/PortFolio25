@@ -64,7 +64,7 @@ export const Framework = () => {
                             whileInView={{ opacity: 1 }}
                             transition={{
                                 duration: 2,
-                                delay: parseFloat(`1.${el.id}`),
+                                delay: parseFloat(`.${el.id}`),
                             }}
                             key={el.id}
                             className="flex items-end justify-center p-5 md:row-span-2 md:p-0 md:odd:row-end-3 md:even:row-span-3 md:even:row-start-2"

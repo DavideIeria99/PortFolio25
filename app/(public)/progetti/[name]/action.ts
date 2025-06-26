@@ -6,8 +6,8 @@ import NameMode from "@/utils/namemode";
 
 
 export interface sectionProps {
-    describe: Database["public"]["Tables"]["describe"]["Row"][];
-    template: Database["public"]["Tables"]["templates"]["Row"];
+    describe: Database["public"]["Tables"]["describe"]["Row"][] | null;
+    template: Database["public"]["Tables"]["templates"]["Row"] | null;
 }
 
 export async function fechSupabase(name: string) {
@@ -32,7 +32,12 @@ export async function fechSupabase(name: string) {
         const result: sectionProps = { template, describe }
 
         return result
+    } else {
+        const result: sectionProps = { template: null, describe: null }
+
+        return result
     }
+
 
 
 }
