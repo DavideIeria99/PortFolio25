@@ -2,21 +2,15 @@
 import { fechImage } from "@/utils/fechtImage";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 type cardProps = {
     name?: string | null;
-    image?: string | null;
+    image: string | null;
     id?: number | null;
 };
 
 export default function Card(card: cardProps) {
-    const [image, setImage] = useState("/media/cover.png");
-    useEffect(() => {
-        if (typeof card.image == "string") {
-            setImage(fechImage(card.image));
-        }
-    }, [card.image, card.name]);
+    const image = fechImage(card.image);
 
     return (
         <Link
@@ -29,7 +23,7 @@ export default function Card(card: cardProps) {
                 </span>
             </div>
             <Image
-                src={image}
+                src={image ?? "/media/cover.png"}
                 alt={card.name ?? "progetto"}
                 width={500}
                 height={500}

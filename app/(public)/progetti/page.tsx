@@ -1,9 +1,12 @@
 import Card from "@/components/ui/card";
 import { createClient } from "@/utils/supabase/database/server";
+import { Suspense } from "react";
 
 export default async function page() {
     const supabase = await createClient();
-    const { data: template } = await supabase.from("templates").select("*");
+    const { data: template } = await supabase
+        .from("templates")
+        .select("name,id,img");
 
     if (!template) {
         return (
@@ -15,13 +18,13 @@ export default async function page() {
         );
     }
     return (
-        <main className="px-10">
+        <main className="px-20">
             <h1 className="text-4xl font-bold uppercase">tutti i progetti</h1>
             <section className="my-10 grid grid-cols-1 gap-6 md:grid-cols-3">
                 {template &&
                     template.map((el) => {
                         return (
-                            <Card key={el.id} name={el.name} image={el.img} />
+                            <Card name={el.name} key={el.id} image={el.img} />
                         );
                     })}
             </section>
