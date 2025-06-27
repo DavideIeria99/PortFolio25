@@ -4,7 +4,7 @@ import React from "react";
 export default function page() {
     return (
         <main className="border px-30">
-            <HeaderPage text={"about"} />
+            <HeaderPage text={"chi sono"} />
             <article className="mt-5 grid grid-cols-1 gap-y-3 md:px-50">
                 <h2>Inizi</h2>
                 <p>
