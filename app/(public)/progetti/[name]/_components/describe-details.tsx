@@ -8,7 +8,7 @@ interface describeProps {
 
 export default function DescribeDetails({ describe }: describeProps) {
     return (
-        <article>
+        <article className="px-3">
             {describe &&
                 describe.map((el) => {
                     if (el.id % 2 === 0) {

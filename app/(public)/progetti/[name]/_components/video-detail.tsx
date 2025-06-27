@@ -8,7 +8,7 @@ export default function VideoDetail({ template }: videoProps) {
     return (
         <>
             {template?.video && (
-                <section>
+                <section className="rounded px-10">
                     <h2
                         className="text-xl font-bold uppercase md:text-2xl"
                         id="video"

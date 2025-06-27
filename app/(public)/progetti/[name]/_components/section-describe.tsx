@@ -19,7 +19,7 @@ export default async function SectionDescribe({
     return (
         <section
             className={clsx(
-                "my-10 flex flex-col-reverse overflow-hidden rounded-lg md:justify-center md:shadow-2xl",
+                "my-10 flex flex-col-reverse gap-y-3 overflow-hidden rounded-lg border-2 border-orange-200 bg-orange-300 p-2 outline-2 outline-orange-400 md:justify-center md:gap-y-0",
                 reverse ? "md:flex-row-reverse" : "md:flex-row",
             )}
         >
@@ -30,7 +30,7 @@ export default async function SectionDescribe({
                     width={500}
                     height={500}
                     priority
-                    className="w-full object-contain md:w-1/2 md:object-cover"
+                    className="w-full rounded object-contain md:w-1/2 md:object-cover"
                 />
             )}
 
