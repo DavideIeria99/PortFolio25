@@ -1,4 +1,5 @@
 import Card from "@/components/ui/card";
+import HeaderPage from "@/components/ui/header-page";
 import { createClient } from "@/utils/supabase/database/server";
 import { Suspense } from "react";
 
@@ -19,7 +20,7 @@ export default async function page() {
     }
     return (
         <main className="px-20">
-            <h1 className="text-4xl font-bold uppercase">tutti i progetti</h1>
+            <HeaderPage text={" progetti"} />
             <section className="my-10 grid grid-cols-1 gap-6 md:grid-cols-3">
                 {template &&
                     template.map((el) => {
