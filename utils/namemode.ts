@@ -1,5 +1,5 @@
 
-export default function NameMode(text: string, type?: string) {
+export default function NameMode(text: string, type?: 'title' | 'img') {
 
     const testName = text.split("");
 

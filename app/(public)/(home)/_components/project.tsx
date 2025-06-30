@@ -42,7 +42,7 @@ export const Project = async () => {
                                 duration: 2,
                                 delay: 0.5,
                             }}
-                            className="rounded-sm border border-transparent bg-[#FFE5CA] p-2 hover:bg-slate-200 active:border-amber-200"
+                            className="rounded-sm border-2 border-orange-200 bg-orange-300 p-2 outline-2 outline-orange-400 hover:bg-orange-200 active:border-orange-400 active:outline-orange-200"
                         >
                             alti progetti
                         </motion.button>

@@ -5,7 +5,7 @@ import React from "react";
 export default function SimpleContact() {
     return (
         <section className="mb-3">
-            <h2 className="text-center font-bold text-orange-400 uppercase">
+            <h2 className="text-center font-bold text-orange-600 uppercase">
                 i miei contatti
             </h2>
             <div className="flex h-40 flex-col items-center justify-evenly md:flex-row">

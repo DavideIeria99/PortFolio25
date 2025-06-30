@@ -10,7 +10,7 @@ export const Navbar = () => {
                 <Link href="/" className="p-1">
                     <Logo className="h-12 w-48 md:w-64" />
                 </Link>
-                <ul className="hidden gap-x-4 text-lg font-bold uppercase *:mx-2 *:hover:underline md:inline">
+                <ul className="hidden gap-x-4 text-lg font-bold uppercase *:mx-2 *:border-b-2 *:border-transparent *:hover:border-orange-400 md:inline">
                     <Link href="/progetti">progetti</Link>
                     <Link href="/about">about</Link>
                     <Link href="/contatti">contatti</Link>
