@@ -3,9 +3,9 @@ import React from "react";
 
 export default function SkelectroDetails() {
     return (
-        <section className="mx-auto w-7/8 rounded-md border border-gray-300 p-4">
+        <section className="mx-auto w-7/8 rounded-md border-2 border-orange-200 p-4 outline-2 outline-orange-400">
             <div className="flex animate-pulse items-center space-x-4">
-                <div className="size-80 flex-1 rounded bg-gray-600">
+                <div className="size-80 flex-1 rounded bg-orange-300">
                     <Image
                         src="/media/cover.png"
                         alt="cover"
