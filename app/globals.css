@@ -99,3 +99,7 @@ p {
 /* =========================
     Sezione dettagli @todo
     ========================= */
+
+.frameSection {
+    @apply border-2 border-orange-200 bg-orange-300 outline-2 outline-orange-400;
+}

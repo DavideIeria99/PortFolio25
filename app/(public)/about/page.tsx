@@ -11,7 +11,17 @@ export default async function page() {
     return (
         <main className="px-30">
             <HeaderPage text={"chi sono"} />
-            <article className="mx-auto mt-5 grid w-4/5 grid-cols-1 gap-y-3 rounded border-2 border-orange-200 bg-orange-300 py-6 outline-2 outline-orange-400 md:px-20">
+            <section className="mt-10 flex items-center gap-x-2">
+                <h3>scarica il mio Cv</h3>
+                <a
+                    href="/Cv-frontEnd.pdf"
+                    download
+                    className="cursor-pointer rounded border-2 border-orange-400 bg-orange-200 p-1 hover:border-orange-200 hover:bg-orange-400 active:border-orange-400"
+                >
+                    <Download />
+                </a>
+            </section>
+            <article className="frameSection mx-auto mt-5 grid w-4/5 grid-cols-1 gap-y-3 rounded py-6 md:px-20">
                 {data &&
                     data.map((el) =>
                         el.id == 1 ? (
@@ -37,17 +47,6 @@ export default async function page() {
                             </section>
                         ),
                     )}
-
-                <section className="mt-10 flex items-center gap-x-2">
-                    <h3>scarica il mio Cv</h3>
-                    <a
-                        href="/Cv-frontEnd.pdf"
-                        download
-                        className="cursor-pointer rounded border-2 border-orange-400 bg-orange-200 p-1 hover:border-orange-200 hover:bg-orange-400 active:bg-orange-400"
-                    >
-                        <Download className="" />
-                    </a>
-                </section>
             </article>
         </main>
     );
