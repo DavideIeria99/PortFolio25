@@ -1,27 +1,14 @@
 "use client";
 import clsx from "clsx";
 import { MenuIcon } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
-const Hamburger = () => {
-    return (
-        <svg
-            className="mx-auto w-5"
-            viewBox="0 0 512 512"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                fill="#000000"
-                d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
-            />
-        </svg>
-    );
-};
-export default function NavMobile({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
+interface navProps {
+    href: string;
+    label: string;
+}
+export default function NavMobile({ links }: { links: navProps[] }) {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <section className="me-3 text-end md:hidden">
@@ -33,11 +20,17 @@ export default function NavMobile({
             </button>
             <section
                 className={clsx(
-                    "bg-body *:hover:bg absolute top-20 right-0 z-30 w-full rounded-sm border-b-2 border-white px-2 py-4 text-start text-sm font-bold capitalize uppercase transition-all duration-700 ease-in *:border-2",
+                    "bg-body absolute top-20 right-0 z-30 w-full rounded-sm border-b-2 border-orange-600 px-2 py-4 text-start text-sm font-bold text-orange-600 uppercase transition-all duration-700 ease-in *:border-b-2 *:border-transparent *:hover:border-orange-400",
                     isOpen ? "flex flex-col" : "hidden",
                 )}
             >
-                {children}
+                {links.map((el) => (
+                    <Link key={el.label} href={el.href}>
+                        <button onClick={() => setIsOpen(!isOpen)}>
+                            {el.label}
+                        </button>
+                    </Link>
+                ))}
             </section>
         </section>
     );

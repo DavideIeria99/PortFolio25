@@ -7,7 +7,7 @@ import React from "react";
 
 export default async function page() {
     const supabase = await createClient();
-    const { data } = await supabase.from("about").select("*");
+    const { data } = await supabase.from("about").select("*").order("id");
     return (
         <main className="px-30">
             <HeaderPage text={"chi sono"} />
@@ -21,7 +21,7 @@ export default async function page() {
                     <Download />
                 </a>
             </section>
-            <article className="frameSection mx-auto mt-5 grid w-4/5 grid-cols-1 gap-y-3 rounded py-6 md:px-20">
+            <article className="mx-auto mt-5 grid w-3/4 grid-cols-1 gap-y-3 rounded py-6 md:px-20">
                 {data &&
                     data.map((el) =>
                         el.id == 1 ? (
@@ -36,14 +36,14 @@ export default async function page() {
                                     height={70}
                                     className="rounded-lg border-2 border-orange-200 outline-2 outline-orange-400"
                                 />
-                                <p className="w-full text-wrap md:w-1/2">
+                                <p className="w-full text-justify text-wrap md:w-1/2">
                                     {el.describe}
                                 </p>
                             </section>
                         ) : (
                             <section key={el.id}>
                                 <h2>{NameMode(el.title, "title")}</h2>
-                                <p>{el.describe}</p>
+                                <p className="text-justify">{el.describe}</p>
                             </section>
                         ),
                     )}

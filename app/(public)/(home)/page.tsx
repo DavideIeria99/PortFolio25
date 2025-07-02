@@ -1,13 +1,13 @@
 "use server";
 import { Framework } from "./_components/framework";
-import { Hero } from "./_components/hero";
+import { NewHero } from "./_components/hero";
 import { Project } from "./_components/project";
 import { WhoIam } from "./_components/who-i-am";
 
 export default async function Home() {
     return (
         <>
-            <Hero />
+            <NewHero />
             <main className="px-5">
                 <WhoIam />
                 <Framework />
