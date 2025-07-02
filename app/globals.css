@@ -39,6 +39,7 @@ main {
     --color-body: var(--body);
     --color-bodylight: var(--bodylight);
     --font-roboto: var(--font-roboto);
+    --font-zain: var(--font-zain);
 
     --animate-fadeInLeft: "fade-left 1s backwards";
     --animate-fadeInBottom: "fade-bottom 1s backwards";
@@ -87,7 +88,7 @@ h3 {
 }
 
 .h1-header {
-    @apply text-4xl font-black tracking-widest uppercase md:text-8xl;
+    @apply text-4xl font-black tracking-widest capitalize md:text-8xl;
 }
 /* =========================
     Paragrafi @info
