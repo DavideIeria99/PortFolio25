@@ -6,6 +6,17 @@ import TitleDetails from "./_components/title-details";
 import DescribeDetails from "./_components/describe-details";
 import VideoDetail from "./_components/video-detail";
 
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ name: string }>;
+}) {
+    const { name } = await params;
+    return {
+        title: NameMode(name),
+    };
+}
+
 export default async function Detail({
     params,
 }: {

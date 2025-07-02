@@ -2,6 +2,11 @@ import Card from "@/components/ui/card";
 import * as motion from "framer-motion/client";
 import HeaderPage from "@/components/ui/header-page";
 import { createClient } from "@/utils/supabase/database/server";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Progetti",
+};
 
 export default async function page() {
     const supabase = await createClient();

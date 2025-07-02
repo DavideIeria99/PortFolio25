@@ -2,8 +2,13 @@ import HeaderPage from "@/components/ui/header-page";
 import NameMode from "@/utils/namemode";
 import { createClient } from "@/utils/supabase/database/server";
 import { Download } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+export const metadata: Metadata = {
+    title: "about",
+};
 
 export default async function page() {
     const supabase = await createClient();

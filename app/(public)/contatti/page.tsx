@@ -1,6 +1,10 @@
 import SimpleContact from "@/components/ui/simple-contact";
+import { Metadata } from "next";
 import React from "react";
 
+export const metadata: Metadata = {
+    title: "contatti",
+};
 export default function page() {
     return (
         <main className="flex items-center justify-center">
