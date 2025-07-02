@@ -35,9 +35,7 @@ export default async function SectionDescribe({
             )}
 
             <div className="mb-3 w-full px-10 md:mb-0 md:w-1/2">
-                <h3 className="text-xl font-semibold uppercase md:text-2xl">
-                    {titleName}
-                </h3>
+                <h3 className="font-semibold uppercase">{titleName}</h3>
                 <p className="mt-2 text-justify md:mt-20">{describe.text}</p>
             </div>
         </section>

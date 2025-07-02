@@ -19,7 +19,7 @@ export const Navbar = () => {
         },
     ];
     return (
-        <nav className="to-body relative w-full bg-linear-to-b from-slate-200 p-6">
+        <nav className="to-body w-full bg-linear-to-b from-slate-200 p-6 md:relative">
             <div className="mx-auto flex items-center justify-between">
                 <Link href="/" className="p-1">
                     <h4 className="text-2xl font-black text-orange-600 uppercase">

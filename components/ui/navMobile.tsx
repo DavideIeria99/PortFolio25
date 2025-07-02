@@ -20,13 +20,16 @@ export default function NavMobile({ links }: { links: navProps[] }) {
             </button>
             <section
                 className={clsx(
-                    "bg-body absolute top-20 right-0 z-30 w-full rounded-sm border-b-2 border-orange-600 px-2 py-4 text-start text-sm font-bold text-orange-600 uppercase transition-all duration-700 ease-in *:border-b-2 *:border-transparent *:hover:border-orange-400",
+                    "bg-body absolute top-20 right-0 z-30 w-full rounded-sm border-b-2 border-orange-600 px-2 py-4 text-start text-orange-600 uppercase transition-all duration-700 ease-in",
                     isOpen ? "flex flex-col" : "hidden",
                 )}
             >
                 {links.map((el) => (
                     <Link key={el.label} href={el.href}>
-                        <button onClick={() => setIsOpen(!isOpen)}>
+                        <button
+                            className="text-sm font-bold uppercase"
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
                             {el.label}
                         </button>
                     </Link>

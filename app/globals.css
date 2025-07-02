@@ -19,11 +19,11 @@ body {
 /* =========================
     Font Titoli @info
     ========================= */
-h1,
+/* h1,
 h2,
 h3 {
     font-family: "Times New Roman", Times, serif;
-}
+} */
 
 /* =========================
     Layout principale @info
@@ -38,6 +38,7 @@ main {
 @theme default {
     --color-body: var(--body);
     --color-bodylight: var(--bodylight);
+    --font-roboto: var(--font-roboto);
 
     --animate-fadeInLeft: "fade-left 1s backwards";
     --animate-fadeInBottom: "fade-bottom 1s backwards";
@@ -67,7 +68,11 @@ main {
         opacity: 1;
     }
 }
-
+h1,
+h2,
+h3 {
+    font-family: var(--font-roboto);
+}
 /* =========================
     Titoli @info
     ========================= */
