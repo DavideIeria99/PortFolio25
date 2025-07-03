@@ -2,6 +2,7 @@ import Image from "next/image";
 import { GetImage } from "../action";
 import { Database } from "@/database.types";
 import NameMode from "@/utils/namemode";
+import * as motion from "framer-motion/client";
 import clsx from "clsx";
 
 interface describeProps {
@@ -17,16 +18,21 @@ export default async function SectionDescribe({
     const titleName = NameMode(describe.title, "title");
 
     return (
-        <section
+        <motion.section
+            initial={reverse ? { opacity: 0, x: 10 } : { opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            //per vedere quando apparire
+            viewport={{ amount: 0.5 }}
             className={clsx(
-                "my-10 flex flex-col-reverse gap-y-3 overflow-hidden rounded-lg border-2 border-orange-200 bg-orange-300 p-2 outline-2 outline-orange-400 md:justify-center md:gap-y-0",
+                "frameSection my-10 flex flex-col-reverse gap-y-3 overflow-hidden rounded-lg p-2 md:justify-center md:gap-y-0",
                 reverse ? "md:flex-row-reverse" : "md:flex-row",
             )}
         >
             {img && (
                 <Image
                     src={img}
-                    alt={describe.title}
+                    alt={titleName}
                     width={500}
                     height={500}
                     priority
@@ -38,6 +44,6 @@ export default async function SectionDescribe({
                 <h3 className="font-semibold uppercase">{titleName}</h3>
                 <p className="mt-2 text-justify md:mt-20">{describe.text}</p>
             </div>
-        </section>
+        </motion.section>
     );
 }

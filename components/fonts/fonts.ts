@@ -1,16 +1,13 @@
-import { Geist, Roboto, Zain } from 'next/font/google'
+import { Amiri, Roboto } from 'next/font/google'
 
 
-export const geist = Geist({
-    subsets: ['latin'],
-})
+
 export const roboto = Roboto({
-    variable: '--font-roboto',
     subsets: ['latin'],
 })
 
-export const zain = Zain({
+export const amiri = Amiri({
     weight: ['400'],
-    variable: '--font-zain',
+    variable: '--font-amiri',
     subsets: ['latin'],
 })

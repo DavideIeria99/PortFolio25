@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Navbar } from "@/components/ui/navbar";
+
 import Footer from "@/components/ui/footer";
-import { geist, roboto, zain } from "@/components/fonts/fonts";
+import { roboto, amiri } from "@/components/fonts/fonts";
+import Navbar from "@/components/ui/navbar";
 
 export const metadata: Metadata = {
     title: {
@@ -19,9 +20,7 @@ export default async function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body
-                className={`${geist.className} ${roboto.variable} ${zain.variable}`}
-            >
+            <body className={` ${roboto.className} ${amiri.variable}`}>
                 <Navbar />
                 {children}
                 <Footer />

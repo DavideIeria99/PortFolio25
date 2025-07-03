@@ -5,6 +5,7 @@ import { Download } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+import * as motion from "framer-motion/client";
 
 export const metadata: Metadata = {
     title: "about",
@@ -30,7 +31,11 @@ export default async function page() {
                 {data &&
                     data.map((el) =>
                         el.id == 1 ? (
-                            <section
+                            <motion.section
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 0.7 }}
+                                viewport={{ amount: 0.2 }}
                                 key={el.id}
                                 className="flex flex-col items-center justify-around md:flex-row md:gap-x-2"
                             >
@@ -44,12 +49,17 @@ export default async function page() {
                                 <p className="w-full text-justify text-wrap md:w-1/2">
                                     {el.describe}
                                 </p>
-                            </section>
+                            </motion.section>
                         ) : (
-                            <section key={el.id}>
+                            <motion.section
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ amount: 0.5 }}
+                                key={el.id}
+                            >
                                 <h2>{NameMode(el.title, "title")}</h2>
                                 <p className="text-justify">{el.describe}</p>
-                            </section>
+                            </motion.section>
                         ),
                     )}
             </article>
