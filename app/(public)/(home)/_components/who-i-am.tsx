@@ -37,7 +37,7 @@ export const WhoIam = () => {
                                 delay: parseFloat(`.${_}`),
                             }}
                             key={_}
-                            className="frameSection flex h-35 w-70 flex-col justify-center rounded-xl shadow-2xl shadow-orange-300 md:rounded-sm md:px-2"
+                            className="frameSection flex h-35 w-70 flex-col justify-center rounded-xl md:rounded-sm"
                         >
                             <div className="flex justify-center">{el.icon}</div>
                             <p className="text-lg">{el.text}</p>

@@ -1,8 +1,9 @@
 import Card from "@/components/ui/card";
-import * as motion from "framer-motion/client";
+
 import { createClient } from "@/utils/supabase/database/server";
 import Link from "next/link";
 import TitleSection from "@/components/ui/title-section";
+import * as motion from "framer-motion/client";
 
 export const Project = async () => {
     const supabase = await createClient();
@@ -42,9 +43,9 @@ export const Project = async () => {
                                 duration: 2,
                                 delay: 0.5,
                             }}
-                            className="rounded-sm border-2 border-orange-200 bg-orange-300 p-2 outline-2 outline-orange-400 hover:bg-orange-200 active:border-orange-400 active:outline-orange-200"
+                            className="frameSection"
                         >
-                            alti progetti
+                            altri progetti
                         </motion.button>
                     </Link>
                 </div>

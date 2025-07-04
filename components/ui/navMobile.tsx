@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import ToggleMode from "./toggle-mode";
 
 interface navProps {
     href: string;
@@ -20,7 +21,7 @@ export default function NavMobile({ links }: { links: navProps[] }) {
             </button>
             <section
                 className={clsx(
-                    "bg-body absolute top-20 right-0 z-30 w-full rounded-sm border-b-2 border-orange-600 px-2 py-4 text-start text-orange-600 uppercase transition-all duration-700 ease-in",
+                    "bg-body absolute top-20 right-0 z-30 w-full rounded-sm border-b-2 border-orange-600 px-2 py-4 text-start text-orange-600 uppercase transition-all duration-700 ease-in dark:bg-orange-950",
                     isOpen ? "flex flex-col" : "hidden",
                 )}
             >
@@ -34,6 +35,7 @@ export default function NavMobile({ links }: { links: navProps[] }) {
                         </button>
                     </Link>
                 ))}
+                <ToggleMode className="inline size-11 text-end md:hidden" />
             </section>
         </section>
     );

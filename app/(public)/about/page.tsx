@@ -6,7 +6,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 import * as motion from "framer-motion/client";
-
 export const metadata: Metadata = {
     title: "about",
 };
@@ -22,7 +21,7 @@ export default async function page() {
                 <a
                     href="/Cv-frontEnd.pdf"
                     download
-                    className="cursor-pointer rounded border-2 border-orange-400 bg-orange-200 p-1 hover:border-orange-200 hover:bg-orange-400 active:border-orange-400"
+                    className="frameSection cursor-pointer p-1 hover:border-orange-200 hover:bg-orange-400 active:border-orange-400"
                 >
                     <Download />
                 </a>
@@ -54,6 +53,7 @@ export default async function page() {
                             <motion.section
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
+                                transition={{ duration: 1 }}
                                 viewport={{ amount: 0.5 }}
                                 key={el.id}
                             >

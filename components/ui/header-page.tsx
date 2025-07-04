@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import * as motion from "framer-motion/client";
-
 export default function HeaderPage({ text }: { text: String }) {
     return (
         <header className="mt-2 flex h-30 items-center justify-center md:h-100">

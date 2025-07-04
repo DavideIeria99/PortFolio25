@@ -1,12 +1,8 @@
-"use client";
-
 import Link from "next/link";
 import NavMobile from "./navMobile";
-import { Moon, Sun } from "lucide-react";
-import { useState } from "react";
+import ToggleMode from "./toggle-mode";
 
-export default function Navbar() {
-    const [theme, Setheme] = useState(false);
+export default async function Navbar() {
     const linkNav = [
         {
             href: "/progetti",
@@ -22,10 +18,10 @@ export default function Navbar() {
         },
     ];
     return (
-        <nav className="to-body w-full bg-linear-to-b from-slate-200 p-6 md:relative">
+        <nav className="to-body w-full bg-linear-to-b from-slate-200 p-6 md:relative dark:to-orange-950">
             <section className="flex items-center justify-between">
                 <Link href="/" className="p-1">
-                    <h4 className="font-amiri text-2xl font-black text-orange-600 capitalize">
+                    <h4 className="font-amiri text-2xl font-black text-orange-600 capitalize dark:text-neutral-300">
                         Davide dev
                     </h4>
                 </Link>
@@ -40,13 +36,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                 </ul>
-                <button
-                    className="frameSection rounded-lg p-2"
-                    onClick={() => Setheme(!theme)}
-                >
-                    {theme ? <Sun /> : <Moon />}
-                </button>
-
+                <ToggleMode className="hidden md:inline" />
                 <NavMobile links={linkNav} />
             </section>
         </nav>

@@ -1,5 +1,6 @@
 /* Import Tailwind CSS */
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* =========================
     Variabili CSS globali @audit-info
@@ -8,6 +9,7 @@
     --body: #ffc183;
     --bodyLight: #ffe5ca;
 }
+
 /* =========================
     Tema personalizzato (non standard CSS) @audit-info
     ========================= */
@@ -24,7 +26,7 @@
     Body @info
     ========================= */
 body {
-    @apply bg-body h-screen;
+    @apply bg-body h-screen dark:bg-orange-950;
 }
 
 /* =========================
@@ -96,5 +98,9 @@ p {
     ========================= */
 
 .frameSection {
-    @apply border-2 border-orange-200 bg-orange-300 outline-2 outline-orange-400;
+    @apply rounded border-2 border-orange-200 bg-orange-300 p-2 text-black outline-2 outline-orange-400 dark:border-orange-400 dark:bg-orange-800 dark:text-neutral-300 dark:outline-orange-800;
+}
+a.frameSection,
+button.frameSection {
+    @apply transition-all duration-300 hover:border-orange-200 hover:bg-orange-400 hover:text-neutral-100 active:border-orange-400 active:outline-orange-200 dark:hover:text-neutral-900;
 }
