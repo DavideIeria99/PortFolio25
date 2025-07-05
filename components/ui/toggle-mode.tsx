@@ -18,7 +18,7 @@ export default function ToggleMode({ className }: { className: string }) {
     }, [theme]);
     return (
         <button
-            className={clsx("frameSection", className)}
+            className={clsx(className)}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
             {icon}

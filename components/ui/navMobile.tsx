@@ -9,6 +9,7 @@ interface navProps {
     href: string;
     label: string;
 }
+
 export default function NavMobile({ links }: { links: navProps[] }) {
     const [isOpen, setIsOpen] = useState(false);
     return (
@@ -17,26 +18,33 @@ export default function NavMobile({ links }: { links: navProps[] }) {
                 className="size-10 rounded-sm px-1 shadow-sm"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                {isOpen ? "X" : <MenuIcon className="mx-auto" />}
+                <MenuIcon className="mx-auto" />
             </button>
-            <section
+
+            <div
                 className={clsx(
-                    "bg-body absolute top-20 right-0 z-30 w-full rounded-sm border-b-2 border-orange-600 px-2 py-4 text-start text-orange-600 uppercase transition-all duration-700 ease-in dark:bg-orange-950",
-                    isOpen ? "flex flex-col" : "hidden",
+                    "bg-opacity-90 bg-body fixed inset-0 z-50 flex transform flex-col items-center justify-center text-neutral-900 transition-all duration-800 dark:bg-orange-950 dark:text-white",
+                    isOpen ? "" : "-translate-y-full",
                 )}
             >
+                <button
+                    className="absolute top-4 right-4 cursor-pointer text-3xl"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    x
+                </button>
+                <ToggleMode className="inline size-11 md:hidden" />
+
                 {links.map((el) => (
-                    <Link key={el.label} href={el.href}>
-                        <button
-                            className="text-sm font-bold uppercase"
-                            onClick={() => setIsOpen(!isOpen)}
-                        >
-                            {el.label}
-                        </button>
+                    <Link
+                        key={el.label}
+                        href={el.href}
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        <button className="my-4 text-2xl">{el.label}</button>
                     </Link>
                 ))}
-                <ToggleMode className="inline size-11 text-end md:hidden" />
-            </section>
+            </div>
         </section>
     );
 }
