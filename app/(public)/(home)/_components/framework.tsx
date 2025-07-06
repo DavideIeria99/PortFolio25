@@ -1,7 +1,6 @@
 import Image from "next/image";
 import * as motion from "framer-motion/client";
 import TitleSection from "@/components/ui/title-section";
-import clsx from "clsx";
 
 const arrLing = [
     {
