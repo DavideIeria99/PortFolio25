@@ -10,7 +10,7 @@ export default async function Navbar() {
         },
         {
             href: "/about",
-            label: "about",
+            label: "about me",
         },
         {
             href: "/contatti",
