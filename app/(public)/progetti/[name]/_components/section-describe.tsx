@@ -1,21 +1,20 @@
 import Image from "next/image";
-import { GetImage } from "../action";
-import { Database } from "@/database.types";
-import NameMode from "@/utils/namemode";
 import * as motion from "framer-motion/client";
 import clsx from "clsx";
+import { ProjectItem } from "@/utils/sanity/types";
+import { fechImage } from "@/utils/fechtImage";
 
 interface describeProps {
-    describe: Database["public"]["Tables"]["describe"]["Row"];
+    describe: ProjectItem;
     reverse?: boolean;
 }
 
-export default async function SectionDescribe({
+export default  function SectionDescribe({
     describe,
     reverse,
 }: describeProps) {
-    const img = await GetImage(describe.image);
-    const titleName = NameMode(describe.title, "title");
+    const img =  fechImage(describe.image?.asset?._ref);
+
 
     return (
         <motion.section
@@ -32,7 +31,7 @@ export default async function SectionDescribe({
             {img && (
                 <Image
                     src={img}
-                    alt={titleName}
+                    alt={describe.title ?? "image"}
                     width={500}
                     height={500}
                     priority
@@ -41,8 +40,8 @@ export default async function SectionDescribe({
             )}
 
             <div className="mb-3 w-full px-10 md:mb-0 md:w-1/2">
-                <h3 className="font-semibold uppercase">{titleName}</h3>
-                <p className="mt-2 text-justify md:mt-20">{describe.text}</p>
+                <h3 className="font-semibold uppercase">{describe.title}</h3>
+                <p className="mt-2 text-justify md:mt-20">{describe.description}</p>
             </div>
         </motion.section>
     );

@@ -1,20 +1,19 @@
 import Card from "@/components/ui/card";
 import * as motion from "framer-motion/client";
 import HeaderPage from "@/components/ui/header-page";
-import { createClient } from "@/utils/supabase/database/server";
 import { Metadata } from "next";
+import { client } from "@/utils/sanity/client";
+import { Template } from "@/utils/sanity/types";
+import { optionsRevalidate, TEMPLATES_QUERY } from "@/utils/sanity/lib/queries";
 
 export const metadata: Metadata = {
     title: "Progetti",
 };
 
 export default async function page() {
-    const supabase = await createClient();
-    const { data: template } = await supabase
-        .from("templates")
-        .select("name,id,img");
+const templates = await client.fetch<Template[]>(TEMPLATES_QUERY, {}, optionsRevalidate);
 
-    if (!template) {
+    if (!templates) {
         return (
             <main>
                 <h4 className="text-2xl font-bold text-white">
@@ -35,10 +34,10 @@ export default async function page() {
                 }}
                 className="my-10 grid grid-cols-1 gap-6 md:grid-cols-3"
             >
-                {template &&
-                    template.map((el) => {
+                {templates &&
+                    templates.map((el,idx) => {
                         return (
-                            <Card name={el.name} key={el.id} image={el.img} />
+                            <Card slug={el.slug?.current} name={el.title} key={idx} image={el.cover?.asset?._ref} />
                         );
                     })}
             </motion.section>

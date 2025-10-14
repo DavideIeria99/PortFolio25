@@ -1,18 +1,23 @@
 import HeaderPage from "@/components/ui/header-page";
-import NameMode from "@/utils/namemode";
-import { createClient } from "@/utils/supabase/database/server";
+
+
 import { Download } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 import * as motion from "framer-motion/client";
+import { About } from "@/utils/sanity/types";
+import { ABOUT_QUERY } from "@/utils/sanity/lib/queries";
+import { client } from "@/utils/sanity/client";
+import { DetailsBox } from "./_components/details-box";
 export const metadata: Metadata = {
     title: "about",
 };
 
+
+
 export default async function page() {
-    const supabase = await createClient();
-    const { data } = await supabase.from("about").select("*").order("id");
+    const about = await client.fetch<About>(ABOUT_QUERY,{});
     return (
         <main className="px-30">
             <HeaderPage text={"chi sono"} />
@@ -27,40 +32,30 @@ export default async function page() {
                 </a>
             </section>
             <article className="mx-auto mt-5 grid w-3/4 grid-cols-1 gap-y-3 rounded py-6 md:px-20">
-                {data &&
-                    data.map((el) =>
-                        el.id == 1 ? (
-                            <motion.section
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                transition={{ duration: 0.7 }}
-                                viewport={{ amount: 0.2 }}
-                                key={el.id}
-                                className="flex flex-col items-center justify-around md:flex-row md:gap-x-2"
-                            >
-                                <Image
-                                    src={"/media/fototessera.jpg"}
-                                    alt="foto"
-                                    width={120}
-                                    height={70}
-                                    className="rounded-lg border-2 border-orange-200 outline-2 outline-orange-400"
-                                />
-                                <p className="w-full text-justify text-wrap md:w-1/2">
-                                    {el.describe}
-                                </p>
-                            </motion.section>
-                        ) : (
-                            <motion.section
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                transition={{ duration: 1 }}
-                                viewport={{ amount: 0.5 }}
-                                key={el.id}
-                            >
-                                <h2>{NameMode(el.title, "title")}</h2>
-                                <p className="text-justify">{el.describe}</p>
-                            </motion.section>
-                        ),
+                <motion.section
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.7 }}
+                    viewport={{ amount: 0.2 }}
+                    className="flex flex-col items-center justify-around md:flex-row md:gap-x-2"
+                >
+                    <Image
+                        src={"/media/fototessera.jpg"}
+                        alt="foto"
+                        width={120}
+                        height={70}
+                        className="rounded-lg border-2 border-orange-200 outline-2 outline-orange-400"
+                    />
+                    <p className="w-full text-justify text-wrap md:w-1/2">
+                        {about.recap}
+                    </p>
+                </motion.section>
+
+                {about.body &&
+                    about.body.map((el, idx) =>
+                        el.children && el.children.length > 0 ? (
+                            <DetailsBox children={el.children[0]} style={el.style} key={idx} />
+                        ) : null
                     )}
             </article>
         </main>

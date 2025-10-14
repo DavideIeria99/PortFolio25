@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 type cardProps = {
-    name?: string | null;
-    image: string | null;
-    id?: number | null;
+    name?: string;
+    slug?: string;
+    image?: string;
 };
 
 export default function Card(card: cardProps) {
@@ -14,7 +14,7 @@ export default function Card(card: cardProps) {
 
     return (
         <Link
-            href={`/progetti/${card.name}`}
+            href={`/progetti/${card.slug}`}
             className="relative h-full w-full shadow-none *:rounded hover:shadow-2xl hover:shadow-gray-500"
         >
             <div className="hover:bg-body/50 absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center opacity-0 transition-opacity hover:opacity-100">

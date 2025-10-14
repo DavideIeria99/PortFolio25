@@ -1,36 +1,43 @@
 import Card from "@/components/ui/card";
-
-import { createClient } from "@/utils/supabase/database/server";
 import Link from "next/link";
 import TitleSection from "@/components/ui/title-section";
 import * as motion from "framer-motion/client";
+import { client } from "@/utils/sanity/client";
+import { optionsRevalidate, TEMPLATES_QUERY_LIMIT } from "@/utils/sanity/lib/queries";
+import { Template } from "@/utils/sanity/types";
+
 
 export const Project = async () => {
-    const supabase = await createClient();
-    const { data } = await supabase
-        .from("templates")
-        .select("*")
-        .limit(3)
-        .order("id");
+const templates = await client.fetch<Template[]>(
+    TEMPLATES_QUERY_LIMIT,
+    {},
+    optionsRevalidate,
+);
 
     return (
         <section className="my-4">
             <TitleSection title="progetti" />
             <div className="grid h-auto w-full grid-cols-2 gap-x-6 px-3 lg:grid-cols-3">
-                {data &&
-                    data.map((el) => {
+                {templates &&
+                    templates.map((el,idx) => {
                         return (
                             <motion.div
-                                key={el.id}
+                                key={idx}
                                 initial={{ opacity: 0, y: 100 }}
                                 whileInView={{ y: 0, opacity: 1 }}
                                 transition={{
                                     duration: 2,
-                                    delay: parseFloat(`.${el.id}`),
+                                    delay: parseFloat(`.${idx}0`),
                                 }}
                                 className="rounded p-2 shadow-xl"
                             >
-                                <Card name={el.name} image={el.img} />
+                                {el.slug?.current && el.title ? (
+                                    <Card
+                                        slug={el.slug.current}
+                                        name={el.title}
+                                        image={ el.cover?.asset?._ref}
+                                    />
+                                ) : null}
                             </motion.div>
                         );
                     })}

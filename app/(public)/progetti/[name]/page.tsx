@@ -1,10 +1,10 @@
-import { fechSupabase } from "./action";
-import NameMode from "@/utils/namemode";
-import SkelectroDetails from "@/components/ui/skelectror";
-import { Suspense } from "react";
+
 import TitleDetails from "./_components/title-details";
 import DescribeDetails from "./_components/describe-details";
 import VideoDetail from "./_components/video-detail";
+import { client } from "@/utils/sanity/client";
+import { Template } from "@/utils/sanity/types";
+import { optionsRevalidate, TEMPLATE_QUERY } from "@/utils/sanity/lib/queries";
 
 export async function generateMetadata({
     params,
@@ -13,7 +13,7 @@ export async function generateMetadata({
 }) {
     const { name } = await params;
     return {
-        title: NameMode(name),
+        title: name,
     };
 }
 
@@ -22,9 +22,11 @@ export default async function Detail({
 }: {
     params: Promise<{ name: string }>;
 }) {
-    const { name } = await params;
-    const stringName = NameMode(name); // Gestione di valori vuoti
-    const details = await fechSupabase(stringName);
+
+
+    const details = await client.fetch<Template>(TEMPLATE_QUERY, await params, optionsRevalidate);
+    const { body } = details; 
+    
     if (!details) {
         return (
             <main className="px-10">
@@ -34,17 +36,22 @@ export default async function Detail({
             </main>
         );
     }
-    const { describe, template } = details;
+    
 
     return (
         <main className="px-10">
-            <Suspense fallback={<p>caricamento...</p>}>
-                <TitleDetails template={template} />
-            </Suspense>
-            <Suspense fallback={<SkelectroDetails />}>
-                <DescribeDetails describe={describe} />
-            </Suspense>
-            <VideoDetail template={template} />
+            {
+                details && (
+                    <TitleDetails title={details.title} tag={details.tag} text={details.recap} link={details.link}  />
+                )
+}
+{                body && (
+                    <DescribeDetails  describe={body} />
+                )}
+
+
+
+            <VideoDetail link={details.link} name={details.title??"video"} />
         </main>
     );
 }

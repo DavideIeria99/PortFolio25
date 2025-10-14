@@ -1,22 +1,23 @@
-import { Database } from "@/database.types";
+
 import React from "react";
 import SectionDescribe from "./section-describe";
+import { ProjectItem } from "@/utils/sanity/types";
 
 interface describeProps {
-    describe: Database["public"]["Tables"]["describe"]["Row"][] | null;
+    describe: ProjectItem[] | null;
 }
 
 export default function DescribeDetails({ describe }: describeProps) {
     return (
         <article className="px-3">
             {describe &&
-                describe.map((el) => {
-                    if (el.id % 2 === 0) {
-                        return <SectionDescribe key={el.id} describe={el} />;
+                describe.map((el,idx) => {
+                    if (idx% 2 === 0) {
+                        return <SectionDescribe key={idx} describe={el} />;
                     } else {
                         return (
                             <SectionDescribe
-                                key={el.id}
+                                key={idx}
                                 describe={el}
                                 reverse
                             />
