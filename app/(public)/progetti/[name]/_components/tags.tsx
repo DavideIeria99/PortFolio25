@@ -48,7 +48,7 @@ export default function Tags({ tag }: { tag: string }) {
                 break;
         }
         setLoading(false);
-    }, []);
+    }, [tag]);
     return (
         <>
             {loading ? (

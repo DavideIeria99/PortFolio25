@@ -54,7 +54,7 @@ export default async function page() {
                 {about.body &&
                     about.body.map((el, idx) =>
                         el.children && el.children.length > 0 ? (
-                            <DetailsBox children={el.children[0]} style={el.style} key={idx} />
+                            <DetailsBox details={el.children[0]} style={el.style} key={idx} />
                         ) : null
                     )}
             </article>

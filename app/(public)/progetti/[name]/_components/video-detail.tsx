@@ -1,4 +1,3 @@
-import { Database } from "@/database.types";
 import React from "react";
 
 interface videoProps {

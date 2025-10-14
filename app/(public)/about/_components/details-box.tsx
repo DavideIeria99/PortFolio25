@@ -1,11 +1,10 @@
-'use client'
+"use client";
 import * as motion from "framer-motion/client";
 
 interface box {
-    children:
+    details:
         | {
               text?: string;
-              [key: string]: any;
           }
         | undefined;
     style:
@@ -22,7 +21,7 @@ interface box {
 export const DetailsBox = (el: box) => {
     return (
         <>
-            {el.children &&
+            {el.details &&
                 (el.style === "h2" ? (
                     <motion.h2
                         initial={{ opacity: 0 }}
@@ -30,7 +29,7 @@ export const DetailsBox = (el: box) => {
                         transition={{ duration: 1 }}
                         viewport={{ amount: 0.5 }}
                     >
-                        {el.children?.text}
+                        {el.details?.text}
                     </motion.h2>
                 ) : (
                     <motion.p
@@ -40,7 +39,7 @@ export const DetailsBox = (el: box) => {
                         viewport={{ amount: 0.5 }}
                         className="text-justify"
                     >
-                        {el.children?.text ?? ""}
+                        {el.details?.text ?? ""}
                     </motion.p>
                 ))}
         </>
