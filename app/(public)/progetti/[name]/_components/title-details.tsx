@@ -26,7 +26,7 @@ export default function TitleDetails({ title,text,link,tag }: titleProps) {
                     </a>
                 )}
             </div>
-            <div className="flex gap-x-3">
+            <div className=" my-2 flex gap-3 flex-wrap">
                 {tag && tag.map((el) => <Tags key={el} tag={el} />)}
             </div>
 
