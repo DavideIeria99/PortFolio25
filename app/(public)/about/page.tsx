@@ -24,7 +24,7 @@ export default async function page() {
             <section className="mt-10 flex items-center gap-x-2">
                 <h3>scarica il mio Cv</h3>
                 <a
-                    href="/Cv-frontEnd.pdf"
+                    href="/CV_FullStack.pdf"
                     download
                     className="frameSection cursor-pointer p-1 hover:border-orange-200 hover:bg-orange-400 active:border-orange-400"
                 >
