@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Footer() {
@@ -5,7 +6,10 @@ export default function Footer() {
         <footer className="mt-10 flex h-20 flex-col-reverse bg-linear-to-t from-slate-200 text-black md:flex-row md:justify-around">
             {/* <!--Copyright section--> */}
             <span className="mt-auto mb-4 items-center text-center text-slate-700">
-                © {new Date().getFullYear()} Copyright:Davide Ieria
+                © {new Date().getFullYear()} Copyright:Davide Ieria,
+                <Link href="/Privacy-Policy" className="hover:underline">
+                    Privacy Policy
+                </Link>
             </span>
         </footer>
     );
