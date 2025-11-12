@@ -7,7 +7,7 @@ export default function Footer() {
             {/* <!--Copyright section--> */}
             <span className="mt-auto mb-4 items-center text-center text-slate-700">
                 © {new Date().getFullYear()} Copyright:Davide Ieria,
-                <Link href="/Privacy-Policy" className="hover:underline">
+                <Link href="/privacy-policy" className="hover:underline">
                     Privacy Policy
                 </Link>
             </span>
