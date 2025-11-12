@@ -1,6 +1,6 @@
 /* Import Tailwind CSS */
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /* =========================
     Variabili CSS globali @audit-info
@@ -17,7 +17,6 @@
     --color-body: var(--body);
     --color-bodylight: var(--bodylight);
     --font-amiri: var(--font-amiri);
-
     --animate-fadeInLeft: "fade-left 1s backwards";
     --animate-fadeInBottom: "fade-bottom 1s backwards";
 }
