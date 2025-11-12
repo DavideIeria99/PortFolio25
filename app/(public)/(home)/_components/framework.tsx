@@ -52,10 +52,10 @@ const arrLing = [
 
 export const Framework = () => {
     return (
-        <article className="my-20 w-full">
+        <section className="my-20 w-full">
             <TitleSection title="FrameWork e linguaggi" />
             {/* computer */}
-            <section className="grid w-full grid-cols-3 md:grid-cols-9 md:grid-rows-4">
+            <article className="grid w-full grid-cols-3 md:grid-cols-9 md:grid-rows-4">
                 {arrLing.map((el) => {
                     return (
                         <motion.div
@@ -78,7 +78,7 @@ export const Framework = () => {
                         </motion.div>
                     );
                 })}
-            </section>
-        </article>
+            </article>
+        </section>
     );
 };

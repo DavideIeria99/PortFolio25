@@ -24,9 +24,9 @@ const WhoStory: cardStoryProps[] = [
 
 export const WhoIam = () => {
     return (
-        <article className="my-8">
+        <section className="my-8">
             <TitleSection title="chi sono" />
-            <section className="grid w-full grid-cols-1 place-items-center gap-y-4 text-center uppercase md:grid-cols-3 md:gap-x-5 md:gap-y-0">
+            <article className="grid w-full grid-cols-1 place-items-center gap-y-4 text-center uppercase md:grid-cols-3 md:gap-x-5 md:gap-y-0">
                 {WhoStory &&
                     WhoStory.map((el, _) => (
                         <motion.div
@@ -37,13 +37,13 @@ export const WhoIam = () => {
                                 delay: parseFloat(`.${_}`),
                             }}
                             key={_}
-                            className="frameSection flex h-35 w-70 flex-col justify-center rounded-xl md:rounded-sm"
+                            className="frameSection flex h-35 w-70 flex-col justify-center items-center rounded-xl md:rounded-sm"
                         >
-                            <div className="flex justify-center">{el.icon}</div>
+                            {el.icon}
                             <p className="text-lg">{el.text}</p>
                         </motion.div>
                     ))}
-            </section>
-        </article>
+            </article>
+        </section>
     );
 };

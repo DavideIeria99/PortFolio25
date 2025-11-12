@@ -1,7 +1,7 @@
 "use client";
 import * as motion from "framer-motion/client";
 
-export const NewHero = () => {
+export const Hero = () => {
     return (
         <>
             <header className="mt-2 flex h-50 flex-col justify-center gap-y-2 px-5 *:w-full md:h-120 md:flex-row md:items-center md:gap-y-0 md:px-20 md:*:w-1/2">
