@@ -1,6 +1,4 @@
 import HeaderPage from "@/components/ui/header-page";
-
-
 import { Download } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -10,6 +8,7 @@ import { About } from "@/utils/sanity/types";
 import { ABOUT_QUERY } from "@/utils/sanity/lib/queries";
 import { client } from "@/utils/sanity/client";
 import { DetailsBox } from "./_components/details-box";
+
 export const metadata: Metadata = {
     title: "about",
 };
@@ -17,7 +16,8 @@ export const metadata: Metadata = {
 
 
 export default async function page() {
-    const about = await client.fetch<About>(ABOUT_QUERY,{});
+    const about = await client.fetch<About>(ABOUT_QUERY, {});
+
     return (
         <main className="px-30">
             <HeaderPage text={"chi sono"} />
@@ -32,7 +32,7 @@ export default async function page() {
                 </a>
             </section>
             <article className="mx-auto mt-5 grid w-3/4 grid-cols-1 gap-y-3 rounded py-6 md:px-20">
-                <motion.section
+                <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.7 }}
@@ -49,7 +49,7 @@ export default async function page() {
                     <p className="w-full text-justify text-wrap md:w-1/2">
                         {about.recap}
                     </p>
-                </motion.section>
+                </motion.div>
 
                 {about.body &&
                     about.body.map((el, idx) =>
