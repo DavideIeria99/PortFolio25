@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/ui/footer";
 import { roboto, amiri } from "@/components/fonts/fonts";
 import Navbar from "@/components/ui/navbar";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
     title: {
@@ -22,7 +23,8 @@ export default async function RootLayout({
             <body className={` ${roboto.className} ${amiri.variable}`}>
                     <Navbar />
                     {children}
-                    <Footer />
+                <Footer />
+                <Analytics/>
             </body>
         </html>
     );
