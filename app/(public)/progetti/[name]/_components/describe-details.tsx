@@ -9,7 +9,7 @@ interface describeProps {
 
 export default function DescribeDetails({ describe }: describeProps) {
     return (
-        <article className="px-3">
+        <section className="px-3">
             {describe &&
                 describe.map((el,idx) => {
                     if (idx% 2 === 0) {
@@ -24,6 +24,6 @@ export default function DescribeDetails({ describe }: describeProps) {
                         );
                     }
                 })}
-        </article>
+        </section>
     );
 }

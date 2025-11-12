@@ -17,7 +17,7 @@ export default  function SectionDescribe({
 
 
     return (
-        <motion.section
+        <motion.div
             initial={reverse ? { opacity: 0, x: 10 } : { opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -43,6 +43,6 @@ export default  function SectionDescribe({
                 <h3 className="font-semibold uppercase">{describe.title}</h3>
                 <p className="mt-2 text-justify md:mt-20">{describe.description}</p>
             </div>
-        </motion.section>
+        </motion.div>
     );
 }
