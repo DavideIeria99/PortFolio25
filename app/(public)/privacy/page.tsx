@@ -1,6 +1,6 @@
 export default function Page() {
     return (
-        <article className="h-screen w-full px-40">
+        <article className="h-auto md:h-screen w-full md:px-40 px-10">
             <h1>policy privacy</h1>
             <p>
                 Analisi del Traffico (Vercel Web Analytics) Utilizziamo Vercel

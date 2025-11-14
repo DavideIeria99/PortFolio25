@@ -41,7 +41,7 @@ h3 {
     Layout principale @info
     ========================= */
 main {
-    @apply min-h-screen px-2; /* Usa le classi Tailwind */
+    @apply  min-h-screen px-2; /* Usa le classi Tailwind */
 }
 
 /* =========================
