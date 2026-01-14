@@ -43,6 +43,12 @@ export default function Tags({ tag }: { tag: string }) {
             case "typescript":
                 setColor("bg-[#3178C6] border-white text-white");
                 break;
+            case "python":
+                setColor("bg-[#FFD442] border-white text-[#3470A0]");
+                break;
+            case "wordpress":
+                setColor("bg-[#3858E9] border-white text-white");
+                break;
             default:
                 setColor("bg-slate-800 border-slat-700");
                 break;
