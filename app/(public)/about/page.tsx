@@ -21,16 +21,7 @@ export default async function page() {
     return (
         <main className="px-30">
             <HeaderPage text={"chi sono"} />
-            <section className="mt-10 flex items-center gap-x-2">
-                <h3>scarica il mio Cv</h3>
-                <a
-                    href="/CV_FullStack.pdf"
-                    download
-                    className="frameSection cursor-pointer p-1 hover:border-orange-200 hover:bg-orange-400 active:border-orange-400"
-                >
-                    <Download />
-                </a>
-            </section>
+
             <article className="mx-auto mt-5 grid w-3/4 grid-cols-1 gap-y-3 rounded py-6 md:px-20">
                 <motion.div
                     initial={{ opacity: 0 }}
